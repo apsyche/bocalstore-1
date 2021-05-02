@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<databases>
+		<db0>
+			<dsn>mysql</dsn>
+			<host>127.0.0.1</host>
+			<port>3306</port>
+			<dataBase>bocalstor_db</dataBase>
+			<user>root</user>
+			<password>mysqlpass</password>
+		</db0>
+		<db1>
+			<dsn></dsn>
+			<host></host>
+			<port></port>
+			<dataBase></dataBase>
+			<user></user>
+			<password></password>
+		</db1>
+		<db2>
+			<dsn></dsn>
+			<host></host>
+			<port></port>
+			<dataBase></dataBase>
+			<user></user>
+			<password></password>
+		</db2>
+	</databases>
+	<prefs>
+		<project>Bocal Store</project>
+		<version> 1.0</version>
+		<prefix>BSR</prefix>
+		<default_timezone>Europe/Paris</default_timezone>
+		<defaultLang>fr</defaultLang>
+	</prefs>
+	<moduls>
+		<fpdf>on</fpdf>
+	</moduls>
+</server>

@@ -1,6 +1,6 @@
 .project
 .buildpath
-.settings
+.settings/
 _pwLog/log.txt
 *.tpl.php
 *.lang.config.php
