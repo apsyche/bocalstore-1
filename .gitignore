@@ -1,7 +1,5 @@
 .project
 .buildpath
 .settings
-_pwLog
-app/_cache/*
-app/_compil/*
+_pwLog/log.txt
 *.tpl.php
