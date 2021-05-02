@@ -1,0 +1,21 @@
+# Français
+# les sections [xxx] corespend aux fichiesr sans l'extention .tpl 
+# ex: login correspond aux variables dans le fichier login.tpl
+#
+
+#variables globales 
+AppName 	= "Soft-APC"
+disconnect 	= "Déconnexion" 
+user 		= "Utilisateur"
+about 		= "A Propos"
+contact 	= "Contact"
+
+[login]
+connexion 	= "Connexion"
+singin 		= "Connexion"
+authentification = "Authentificationd"
+about 		= "A Propos"
+contact 	= "Contact" 
+user 		= "Utilisateur"
+passwd 		= "Mot de passe"
+errorLogin 	= "Erreur de connexion vérifier votre Login ou votre Mot de Passe"

@@ -1,0 +1,104 @@
+$(function() {
+	
+	select=function(pid){
+		location.href = "urb!index!urbComAdd!"+pid;
+	}
+	
+	
+	$(function() {
+		$("#comDate").datepicker();
+	});
+	
+	addCom = function(pid) {
+
+		$("#addComDialog").dialog({
+			modal: true,
+			width: 700,
+			buttons: {
+				"Enregistrer": function(){ 
+					$.ajax({
+						type : "POST",
+						url : "!urbCommission!newCom",
+						data : {
+							comDate : $("#comDate").val(),
+							comGuichet : $("#comGuichet").val(),
+						},
+						async : false,
+						success : function(data) {
+							if(data[0] == 'e'){
+								alert(data);
+							}else{
+								location.href = "urb!index!urbComAdd!"+data;
+							}
+							
+						},
+						error : function(xhr, ajaxOptions, thrownError) {
+							alert("save access error." + "\nstatusText: " + xhr.statusText
+									+ "\nthrownError: " + thrownError);
+							return;
+						}
+					});
+					
+					$(this).dialog("close");
+				},
+				"Annuler": function(){
+						$(this).dialog("close");
+					}
+				},
+		});
+	}
+	
+	
+	search = function(pid) {
+
+		var data = "";
+		$.ajax({
+			type : "POST",
+			url : "!urbCommission!Search",
+			data : {
+				ddn_m : $("#ddn_m").val(),
+				ddn_a : $("#ddn_a").val(),
+			},
+			async : false,
+			success : function(dataList) {
+				data = dataList;
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				alert("save access error." + "\nstatusText: " + xhr.statusText
+						+ "\nthrownError: " + thrownError);
+				return;
+			}
+
+		});
+
+		
+		$("#tab").empty();
+		var tab = $("#tab");
+
+		dd = eval('(' + data + ')');
+	//	if (dd.length == 0) {
+	//		alert("Aucun résultat !");
+	//		return;
+	//	}
+		
+
+			$("#tab").append(
+					"<tr>" + "<th>Date</th>" + "<th>Guichet</th>"
+						   + "</tr>");
+
+			$.each(dd, function(key, row) {
+				$("#tab").append(
+						"<tr onclick=\"(select('" + row.com_id + "'))\">"
+								+ "<td>" + row.com_date + "</td>" + "<td>" + row.com_guichet + "</td>" + "</tr>");
+			});
+
+	};
+	
+	clearAll=function(){
+		location.href = "urb!index!urbCommission";
+	}
+	
+
+	search();
+
+});

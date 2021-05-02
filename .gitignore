@@ -1,0 +1,7 @@
+.project
+.buildpath
+.settings
+_pwLog
+app/_cache/*
+app/_compil/*
+*.tpl.php
