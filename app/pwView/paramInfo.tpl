@@ -22,7 +22,7 @@
 			<td> <input class="form-control" type="text" id="inf_adresse" name="inf_adresse"  value="{$rowInfo.inf_adresse}"></td>
 		</tr>
 		<tr>
-			<td style="width: 10%">Code Postale</td>
+			<td style="width: 10%">Code postal</td>
 			<td > <input style="width: 10%" class="form-control" type="text" id="inf_cp" name="inf_cp" value="{$rowInfo.inf_cp}"></td>
 		</tr>
 		<tr>

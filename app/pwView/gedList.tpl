@@ -7,7 +7,7 @@
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default" onclick="addDocs();">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"
-				style="color: #428bca;"></span> &nbsp; Ajouter Documents
+				style="color: #428bca;"></span> &nbsp; Ajouter document.
 		</button>
 	</div>
 
