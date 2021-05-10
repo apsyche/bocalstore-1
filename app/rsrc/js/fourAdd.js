@@ -1,3 +1,8 @@
+function isEmail(email) {
+  var EmailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return EmailRegex.test(email);
+}
+
 $(function() {
 	save=function(pid){
 		
@@ -5,6 +10,17 @@ $(function() {
 			alert ("Nom fournisseur obligatoire  !");
 			return (0);
 		}
+		
+		if(isEmail($("#fur_mail").val())==false){
+          alert("Mail du fournisseur non valide.");
+          return (0);
+        }
+
+		if(isEmail($("#fur_mail_corresp").val())==false){
+          alert("Mail du correspondant non valide.");
+          return (0);
+        }
+
 
 	
 		var d = $("#four_add_form").serialize();
@@ -14,7 +30,8 @@ $(function() {
 			data : d,
 			async : false,
 			success : function(data) {
-				location.href = "!four!index!fourAdd!"+data;	
+				alert("Enregistrement effectuée");
+				location.href = "four!index!fourList";	
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
 				alert("save access error." + "\nstatusText: "

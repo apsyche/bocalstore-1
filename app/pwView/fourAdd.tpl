@@ -43,7 +43,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="">
-						<label for="pos_tem1_nom" style="width: 30%">Nom Fournisseur</label> 
+						<label for="pos_tem1_nom" style="width: 30%">Nom</label> 
 						<input type="text" class="form-control" id="fur_raison_social" name="fur_raison_social" style="width: 50%" value="{$row.fur_raison_social}" >
 					</div>
 
@@ -59,7 +59,7 @@
 
 					<div class="">
 						<label for="fur_cp" style="width: 30%">Code Postal</label> 
-						<input type="text" class="form-control" id="fur_cp" name="fur_cp" style="width: 50%" value="{$row.fur_cp}">
+						<input type="text" class="form-control" id="fur_cp" name="fur_cp" style="width: 50%" value="{$row.fur_cp}" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 					</div>
 
 					
@@ -67,12 +67,12 @@
 				<div class="col-md-6">
 					<div class="">
 						<label for="fur_tel_1" style="width: 30%">Téléphone 1 </label>
-						<input type="text" class="form-control" id="fur_tel_1" name="fur_tel_1" style="width: 50%" value="{$row.fur_tel_1}">
+						<input type="text" class="form-control" id="fur_tel_1" name="fur_tel_1" style="width: 50%" value="{$row.fur_tel_1}" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 					</div>
 
 					<div class="">
 						<label for="fur_tel_2" style="width: 30%">Téléphone 2 </label> 
-						<input type="text" class="form-control" id="fur_tel_2" name="fur_tel_2" style="width: 50%" value="{$row.fur_tel_2}">
+						<input type="text" class="form-control" id="fur_tel_2" name="fur_tel_2" style="width: 50%" value="{$row.fur_tel_2}" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 					</div>
 					
 					<div class="">
@@ -100,12 +100,12 @@
 				<div class="col-md-6">
 					
 					<div class="">
-						<label for="fur_adresse" style="width: 30%">Nom Correspondant</label>
+						<label for="fur_adresse" style="width: 30%">Nom</label>
 						<input type="text" class="form-control" id="fur_nom_corresp" name="fur_nom_corresp" style="width: 50%" value="{$row.fur_nom_corresp}">
 					</div>
 
 					<div class="">
-						<label for="fur_prenom_corresp" style="width: 30%">Prénom Correspondant </label> 
+						<label for="fur_prenom_corresp" style="width: 30%">Prénom</label> 
 						<input type="text" class="form-control" id="fur_prenom_corresp" name="fur_prenom_corresp" style="width: 50%" value="{$row.fur_prenom_corresp}">
 					</div>
 					
@@ -114,12 +114,12 @@
 				<div class="col-md-6">
 					
 					<div class="">
-						<label for=" fur_mail_corresp " style="width: 30%">Mail Correspondant </label>
-						<input type="text" class="form-control" id=" fur_mail_corresp " name="fur_mail_corresp" style="width: 50%" value="{$row.fur_mail_corresp}">
+						<label for="fur_mail_corresp" style="width: 30%">Mail</label>
+						<input type="text" class="form-control" id="fur_mail_corresp" name="fur_mail_corresp" style="width: 50%" value="{$row.fur_mail_corresp}">
 					</div>
 					<div class="">
-						<label for="fur_tel_corresp" style="width: 30%">Tél 1 Correspondant</label> 
-						<input type="text" class="form-control" id="fur_tel_corresp" name="fur_tel_corresp" style="width: 50%" value="{$row.fur_tel_corresp}">
+						<label for="fur_tel_corresp" style="width: 30%">Téléphone</label> 
+						<input type="text" class="form-control" id="fur_tel_corresp" name="fur_tel_corresp" style="width: 50%" value="{$row.fur_tel_corresp}" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 					</div>
 					
 
@@ -141,13 +141,13 @@
 					
 					<div class="">
 						<label for="fur_mail" style="width: 30%">RIB</label> 
-						<input type="text" class="form-control" id="fur_rib" name="fur_rib" style="width: 50%" value="{$row.fur_rib}">
+						<input type="text" class="form-control" id="fur_rib" name="fur_rib" style="width: 50%" value="{$row.fur_rib}" maxlength="23">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="">
 						<label for="fur_tel_2" style="width: 30%">IBAN</label> 
-						<input type="text" class="form-control" id="fur_iban" name="fur_iban" style="width: 50%" value="{$row.fur_iban}">
+						<input type="text" class="form-control" id="fur_iban" name="fur_iban" style="width: 50%" value="{$row.fur_iban}" maxlength="34">
 					</div>
 					
 

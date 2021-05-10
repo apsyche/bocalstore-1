@@ -23,14 +23,15 @@ $(function() {
 						return (0);
 					}
 					
-					
+					var nom = $("#gedd_nom").val().replace(" ","_");
+					var description = $("#gedd_description").val().replace(" ","_");
 					var file_data = $("#gedd_file").prop("files")[0];   
 				    var form_data = new FormData();                   
 				    form_data.append("gedd_file", file_data) ;             
 				    form_data.append("gedd_id", "") ;
 				    form_data.append("gedd_type", $("#gedd_type").val()) ; 
-				    form_data.append("gedd_nom", $("#gedd_nom").val()) ; 
-				    form_data.append("gedd_description", $("#gedd_description").val()) ;
+				    form_data.append("gedd_nom", nom) ; 
+				    form_data.append("gedd_description", description) ;
 				    
 					$.ajax({
 						url: "!gedList!AddFile", 
