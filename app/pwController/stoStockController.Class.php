@@ -165,7 +165,6 @@ class stoStockController extends PwController {
 	    $srv_id   	= (isset ($_POST['srv_id']))? $_POST['srv_id']:"";
 		
 	    $lst = PwStock::getEtatInventaire($num_inv, $num_srv , $nom_prod , $groupBy_id , $hors_inv, $sto_date_achat_deb, $sto_date_achat_fin, $fur_id,$prd_id,$cat_id,$srv_id);
-	    
 		$csv = new PwCSV ();
  		$csv->Colonne ( "Num Inventaire ; Catégorie ; Réf Produit ; Nom Produit ; Fournisseur ; Date Achat ; Affectation ; Total ;" );
 		
