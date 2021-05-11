@@ -4,7 +4,7 @@
 #
 
 #variables globales 
-AppName 	= "Soft-APC"
+AppName 	= "Bocal Store"
 disconnect 	= "Déconnexion" 
 user 		= "Utilisateur"
 about 		= "A Propos"
@@ -14,7 +14,7 @@ contact 	= "Contact"
 connexion 	= "Connexion"
 singin 		= "Connexion"
 authentification = "Authentificationd"
-about 		= "A Propos"
+about 		= "À Propos"
 contact 	= "Contact" 
 user 		= "Utilisateur"
 passwd 		= "Mot de passe"

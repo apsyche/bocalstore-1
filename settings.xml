@@ -28,7 +28,7 @@
 	</databases>
 	<prefs>
 		<project>Bocal Store</project>
-		<version> 1.0</version>
+		<version> 2.0</version>
 		<prefix>BSR</prefix>
 		<default_timezone>Europe/Paris</default_timezone>
 		<defaultLang>fr</defaultLang>

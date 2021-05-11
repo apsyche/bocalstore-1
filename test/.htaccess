@@ -1,5 +1,0 @@
-Options +FollowSymlinks
-<IfModule mod_rewrite.c>
-	RewriteEngine On
-	RewriteRule ^([a-zA-Z0-9\_\/\+\!\:\\]+)$ _control.php?p=$1 [L,QSA,B]
-</IfModule>

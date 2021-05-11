@@ -5,8 +5,7 @@ $(function() {
 			alert ("Nom fournisseur obligatoire  !");
 			return (0);
 		}
-
-	
+		
 		var d = $("#four_add_form").serialize();
 		$.ajax({
 			type : "POST",
@@ -21,9 +20,7 @@ $(function() {
 						+ xhr.statusText + "\nthrownError: "
 						+ thrownError);
 			}
-
 		});
-
 	};
 	
 
