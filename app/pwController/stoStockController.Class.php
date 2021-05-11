@@ -137,6 +137,7 @@ class stoStockController extends PwController {
     		$obj->sto_fur_id=$_POST['sto_fur_id'];
     		$obj->sto_prd_id=$_POST['sto_prd_id'];
     		$obj->sto_cat_id=$_POST['sto_cat_id'];
+    		$obj->sto_libele_prd=$_POST['sto_prd_id2'];
     		$obj->sto_date_achat=$_POST['sto_date_achat'];
     		$obj->sto_annne_amortissement=$_POST['sto_annne_amortissement'];
     		$obj->sto_srv_id=$_POST['sto_srv_id'];
@@ -166,10 +167,10 @@ class stoStockController extends PwController {
 	    $lst = PwStock::getEtatInventaire($num_inv, $num_srv , $nom_prod , $groupBy_id , $hors_inv, $sto_date_achat_deb, $sto_date_achat_fin, $fur_id,$prd_id,$cat_id,$srv_id);
 	    
 		$csv = new PwCSV ();
- 		$csv->Colonne ( "Num Inventaire ; Catégorie ; Réf Produit ; Nom Produit ; Fournisseur ; Date Achat ; Affectation ; Total ; " );
+ 		$csv->Colonne ( "Num Inventaire ; Catégorie ; Réf Produit ; Nom Produit ; Fournisseur ; Date Achat ; Affectation ; Total ;" );
 		
 		foreach ( $lst as $row ) {
-			$csv->Insertion ( $row['sto_num_inventaire'] . ";" . $row['sto_libele_cat'] . ";" . ";" . $row['sto_libele_prd'] . ";". $row['fur_raison_social'] . ";". $row['sto_date_achat'] . ";". $row['srv_nom'] . ";". $row['sto_total'] . ";");
+		    $csv->Insertion ( $row['sto_num_inventaire'] . ";". $row['cat_nom'] .";" . $row['sto_libele_cat'] . ";" . $row['prd_nom'] . ";". $row['fur_raison_social'] . ";". $row['sto_date_achat'] . ";". $row['srv_nom'] .";". $row['sto_total'] . ";");
 		}
 		
 		$csv->output ('Export_CSV');
