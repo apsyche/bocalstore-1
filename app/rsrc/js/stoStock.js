@@ -407,7 +407,6 @@ addMultiples = function() {
 				if($("#sto_cat_id2").val().length < 1)	{ alert ("Nom catégorie obligatoire !");	return (0); }
 				if($("#sto_srv_id2").val() == '')		{ alert ("Vérifier Affectation ") ; 		return (0); }
 				
-				
 			    var form_data = new FormData();                   
 			    form_data.append("nbr_prd",				$("#nbr_prd").val());
 				form_data.append("sto_fur_id",			$("#sto_fur_id2").val());

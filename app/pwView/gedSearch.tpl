@@ -60,9 +60,9 @@
 			</tr>
 			{foreach from=$listDoc item=r}
 			<tr>
-				<td>{$r.gedd_nom}</td>
+				<td>{str_replace("_"," ",$r.gedd_nom)}</td>
 				<td>{$listTypeDoc[$r.gedd_type]}</td>
-				<td>{$r.gedd_description}</td>
+				<td>{str_replace("_"," ",$r.gedd_description)}</td>
 				<td><a href="gedList!ReadFile!{$r.gedd_id}">{$r.gedd_nom_file}</a></td>
 				<td><button type="button" class="btn btn-danger btn-xs"
 						onclick="delDoc('{$r.gedd_id}');">

@@ -16,6 +16,14 @@
 8 = "alpha"
 7 = "Autre"
 
+[typeDocFournisseur]
+0 = ""; 
+1 = "PV Mise en service";
+2 = "Facture";
+3 = "Devis";
+5 = "Bon de commande"
+6 = "Compte-rendu"
+7 = "Autre"
 
 
 [yesNo]

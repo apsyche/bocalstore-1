@@ -17,7 +17,7 @@
 			<th><p class="verticalText"> Fournisseurs </p></th>
 			<th><p class="verticalText"> Produits </p></th>
 			<th><p class="verticalText"> Inventaire </p></th>
-			<th><p class="verticalText"> Pret </p></th>
+			<th><p class="verticalText"> Prêt </p></th>
 			<th><p class="verticalText"> Ged </p></th>
 			<th><p class="verticalText"> Paramétrage </p></th>
 			<th><p class=""> Fonctions</p></th>

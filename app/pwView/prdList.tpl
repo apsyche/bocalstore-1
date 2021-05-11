@@ -8,15 +8,15 @@
 		<button type="button" class="btn btn-default"
 			onclick="saveCat('');">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"
-				style="color: #428bca;"></span> &nbsp; Ajouter Catégorie
+				style="color: #428bca;"></span> &nbsp; Ajouter une catégorie
 		</button>
 	</div>
 
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default" onclick="saveProd('');">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"
-				style="color: #428bca;"></span> &nbsp; Ajouter Produit à la
-			Catégorie Séléctionnée
+				style="color: #428bca;"></span> &nbsp; Ajouter un produit à la
+			catégorie séléctionnée
 		</button>
 	</div>
 
@@ -66,7 +66,7 @@
 		<table style="width: 95%">
 
 			<tr>
-				<td align="right" style="width: 40%">Nom Catégorie
+				<td align="right" style="width: 40%">Nom
 					&nbsp;&nbsp; &nbsp;</td>
 				<td><input class="form-control" type="text" id="cat_nom"
 					name="cat_nom"></td>
@@ -93,7 +93,7 @@
 		<table style="width: 95%">
 
 			<tr>
-				<td align="right" style="width: 40%">Nom Produit &nbsp;&nbsp;
+				<td align="right" style="width: 40%">Nom &nbsp;&nbsp;
 					&nbsp;</td>
 				<td><input class="form-control" type="text" id="prd_nom"
 					name="prd_nom"></td>
@@ -108,7 +108,7 @@
 				<td align="right" style="width: 40%">Prix indicatif &nbsp;&nbsp;
 					&nbsp;</td>
 				<td><input class="form-control" type="text" id="prd_prix_ht"
-					name="prd_prix_ht"></td>
+					name="prd_prix_ht" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></td>
 			</tr>
 		</table>
 		<br> <br>

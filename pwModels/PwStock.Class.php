@@ -35,15 +35,15 @@ class PwStock extends PwModel {
 		}
 		
 		if(($prd_id != "0")&&($prd_id != "")){
-		    $where .= " and prd_id = '$prd_id' ";
+		    $where .= " and sto_prd_id = '$prd_id' ";
 		}
 		
 		if(($cat_id != "0")&&($cat_id != "")){
-		    $where .= " and cat_id = '$cat_id' ";
+		    $where .= " and sto_cat_id = '$cat_id' ";
 		}
 		
 		if(($srv_id != "0")&&($srv_id != "")){
-		    $where .= " and srv_id = '$srv_id' ";
+		    $where .= " and sto_srv_id = '$srv_id' ";
 		}
 		
 		
@@ -83,18 +83,16 @@ class PwStock extends PwModel {
 				left outer join produit on (produit.prd_id = stock.sto_prd_id  ) 
 				left outer join categorie on (categorie.cat_id = stock.sto_cat_id )
                 left outer join service on (service.srv_id = stock.sto_srv_id ) 
-				where 
-				sto_del = '0'  " 
-				. $where . $groupe_by . $order_by . $limitLine
+				WHERE 
+				sto_del = '0' " 
+				. $where . $groupe_by . $order_by . $limitLine.";"
 				;
 		
 		//PwDebug::debugInLogFile($cmd);
-		
+		//SELECT stock.* , fournisseur.*, produit.*, categorie.* , service.* , SUM(sto_qte) as sto_total  from stock left outer join fournisseur on (fournisseur.fur_id = stock.sto_fur_id ) left outer join produit on (produit.prd_id = stock.sto_prd_id  ) left outer join categorie on (categorie.cat_id = stock.sto_cat_id ) left outer join service on (service.srv_id = stock.sto_srv_id ) WHERE sto_del = '0' and service.srv_id = 8; 
 		$prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
 		$prep->execute ();
-		$list = $prep->fetchAll ( PDO::FETCH_ASSOC );
-		
-		
+		$list = $prep->fetchAll ( PDO::FETCH_ASSOC );	
 		return $list;
 		
 	}
