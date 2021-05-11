@@ -37,7 +37,7 @@
 			
 			<div class="row">
 			  <div class="col-md-2">
-			  	<span class="glyphicon glyphicon-barcode" > </span>  Code barre <br> <input class="form-control" type="text" id="num_inv" name="num_inv"  value="">
+			  	<span class="glyphicon glyphicon-barcode" > </span> Code barre <br> <input class="form-control" type="text" id="num_inv" name="num_inv"  value="">
 			  	<span class="glyphicon glyphicon-inbox" > </span> Emplacement {html_options class="form-control" id='srv_id' name='srv_id' options=$listService}
 			  </div>
 
@@ -48,7 +48,7 @@
 			
 			  </div>
 			  <div class="col-md-4">
-			  	 <span class="glyphicon glyphicon-bookmark" > </span> Libelé Produit<br><input class="form-control" type="text" id="nom_prod" name="nom_prod" value="">
+			  	 <span class="glyphicon glyphicon-bookmark" > </span> Libellé produit<br><input class="form-control" type="text" id="nom_prod" name="nom_prod" value="">
 			  	 <span class="glyphicon glyphicon-download-alt" > </span> Fournisseurs {html_options class="form-control" id='fur_id' name='fur_id' options=$lisFournisseurs}
 			  </div>
 
@@ -95,15 +95,15 @@
 				<td><input class="form-control" type="text" id="prt_prenom" name="prt_prenom"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Num Téléphone &nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Numéro de téléphone &nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" id="prt_num_tel" name="prt_num_tel"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Fournisseurs&nbsp;&nbsp;&nbsp;	</td>
+				<td align="right" style="width: 40%">Niveau d'étude&nbsp;&nbsp;&nbsp;	</td>
 				<td>{html_options class="form-control" id='prt_diplome' name='prt_diplome' options=$diplome}</td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Date prêt &nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Date de prêt &nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="prt_date_pret" name="prt_date_pret" readonly="readonly"></td>
 			</tr>
 			<tr>

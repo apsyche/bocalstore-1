@@ -22,8 +22,9 @@ $(function() {
 				   },
 				   async: false, 
 				   success: function(data){
-					   alert(data);
-					   refreshCat();
+					   alert("Catégorie supprimée");
+					   //refreshCat();
+						location.reload();
 					   //location.href = "four!index!prdList!";
 				   },
 			  	   error:function(xhr, ajaxOptions, thrownError){
@@ -44,7 +45,7 @@ $(function() {
 				   },
 				   async: false, 
 				   success: function(data){
-					   alert(data);
+					   alert("Produit supprimé.");
 					   refreshProd();
 					   //location.href = "four!index!prdList!";
 				   },
@@ -119,7 +120,7 @@ $(function() {
 	
 	saveProd=function(prd_id='', prd_nom='', prd_description ='', prd_prix_ht='',prd_tva='19',prd_ref=''){
 		if(selectedcat == 0){
-			alert("aucune catégorie séléctionnée")
+			alert("Aucune catégorie séléctionnée")
 			return ;
 		}
 		
@@ -136,14 +137,19 @@ $(function() {
 				"Enregistrer": function(){ 
 
 					if($("#prd_nom").val() == 0 ){
-						alert ("Nom Produit obligatoire  !");
+						alert ("Nom du produit obligatoire.");
 						return (0);
 					}
 					
 					if($("#prd_description").val().length < 2){
-						alert ("Description obligatoire  !");
+						alert ("Description du produit obligatoire.");
 						return (0);
 					}
+					
+					//if(!$("#prd_prix_ht").isNumeric()){
+						//alert ("Veulli");
+						//return (0);
+				//	}
 					
 					
 				    var form_data = new FormData();
@@ -216,7 +222,7 @@ $(function() {
 					"<th>N°</th>"+
 					"<th>Nom</th>"+
 					"<th>Description</th>"+
-					"<th>Fct</th>"+
+					"<th>Outils</th>"+
 				"</tr></thead><tbody>"
 		);
 		var note = "";
@@ -226,9 +232,8 @@ $(function() {
 			$("#tableCat").append(
 					"<tr id=\"crow"+row['cat_id']+"\" onclick=\"selectCat('"+row['cat_id']+"'); refreshProd('"+row['cat_id']+"')\" >" +
 						"<td>"+nbr+"</td>"+
-						"<td>"+row['cat_nom'] +"</td>"+
-						"<td>"+row['cat_description'] +"</td>"+
-
+						"<td>"+row['cat_nom'].replace(/\\/g, '') +"</td>"+
+						"<td>"+row['cat_description'].replace(/\\/g, '') +"</td>"+
 						"<td style=\"width: 70px\">"+
 						 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"saveCat('"+row['cat_id']+"','"+row['cat_nom']+"','"+row['cat_description']+"')\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span> </button>" +
 						 	"&nbsp;"+
@@ -287,8 +292,8 @@ $(function() {
 			$("#tableProd").append(
 					"<tr>" +
 						"<td>"+nbr+"</td>"+
-						"<td>"+row['prd_nom'] +"</td>"+
-						"<td>"+row['prd_description'] +"</td>"+
+						"<td>"+row['prd_nom'].replace(/\\/g, '') +"</td>"+
+						"<td>"+row['prd_description'].replace(/\\/g, '') +"</td>"+
 						"<td>"+row['prd_prix_ht'] +"</td>"+
 		
 						"<td style=\"width: 70px\">"+

@@ -26,7 +26,7 @@
 			href="param!index!paramService"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Emplacement&nbsp;&nbsp;</a></li>
 
 		<li class="{if $frame eq 'paramAbout' }active{/if}"><a
-			href="param!index!paramAbout"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> A Propos&nbsp;&nbsp;</a></li>
+			href="param!index!paramAbout"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> À Propos&nbsp;&nbsp;</a></li>
 
 
 	</ul>

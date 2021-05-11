@@ -30,9 +30,8 @@ class PwGedDoc extends PwModel {
 			$where.= " and gedd_nom like '%$name%' ";
 		}
 		if($desc != "") {
-			$where.= " and gedd_nom like '%$desc%' ";
+			$where.= " and gedd_description like '%$desc%' ";
 		}
-		
 		$cmd = "SELECT * FROM ged_doc 
 				where 
 				1=1 

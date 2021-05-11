@@ -5,9 +5,9 @@
 			<dsn>mysql</dsn>
 			<host>127.0.0.1</host>
 			<port>3306</port>
-			<dataBase>bocalstor_db</dataBase>
+			<dataBase>bocalstore_bd</dataBase>
 			<user>root</user>
-			<password>mysqlpass</password>
+			<password>root</password>
 		</db0>
 		<db1>
 			<dsn></dsn>
