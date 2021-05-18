@@ -88,8 +88,7 @@ class PwStock extends PwModel {
 				. $where . $groupe_by . $order_by . $limitLine.";"
 				;
 		
-		//PwDebug::debugInLogFile($cmd);
-		//SELECT stock.* , fournisseur.*, produit.*, categorie.* , service.* , SUM(sto_qte) as sto_total  from stock left outer join fournisseur on (fournisseur.fur_id = stock.sto_fur_id ) left outer join produit on (produit.prd_id = stock.sto_prd_id  ) left outer join categorie on (categorie.cat_id = stock.sto_cat_id ) left outer join service on (service.srv_id = stock.sto_srv_id ) WHERE sto_del = '0' and service.srv_id = 8; 
+		//PwDebug::debugInLogFile($cmd); 
 		$prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
 		$prep->execute ();
 		$list = $prep->fetchAll ( PDO::FETCH_ASSOC );	

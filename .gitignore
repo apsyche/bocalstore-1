@@ -4,4 +4,5 @@
 _pwLog/log.txt
 *.tpl.php
 *.lang.config.php
+app/_compil/*
 

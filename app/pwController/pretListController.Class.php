@@ -80,6 +80,36 @@ class pretListController extends PwController {
 	    echo $text;
 	}
 	
+
+	public function actionAddPret() {
+	    $prd_id 	= (isset ($_POST['prd_id']))? $_POST['prd_id']:"";  // produit 
+	    
+	    $prt_nom = (isset ($_POST['prt_nom']))? $_POST['prt_nom']:"";
+	    $prt_prenom = (isset ($_POST['prt_prenom']))? $_POST['prt_prenom']:"";
+	    $prt_email = (isset ($_POST['prt_email']))? $_POST['prt_email']:""; 
+	    $prt_diplome = (isset ($_POST['prt_diplome']))? $_POST['prt_diplome']:""; 
+	    $prt_num_tel = (isset ($_POST['prt_num_tel']))? $_POST['prt_num_tel']:""; 
+	    $prt_date_pret = (isset ($_POST['prt_date_pret']))? $_POST['prt_date_pret']:"";
+	    $prt_date_retour_prevu = (isset ($_POST['prt_date_retour_prevu']))? $_POST['prt_date_retour_prevu']:""; 
+	    $prt_commentaire = (isset ($_POST['prt_commentaire']))? $_POST['prt_commentaire']:""; 
+	    
+	   
+	    $pret = new PwPret();
+	    //$pret->$prt_user_id =""; // a voir 
+	    $pret->prt_prd_id = $prd_id;
+	    $pret->prt_nom = $prt_nom;
+	    $pret->prt_prenom =$prt_prenom;
+	    $pret->prt_email = $prt_email;
+	    $pret->prt_diplome = $prt_diplome;
+	    $pret->prt_num_tel = $prt_num_tel;
+	    $pret->prt_date_pret = $prt_date_pret;
+	    $pret->prt_date_retour_prevu = $prt_date_retour_prevu;
+	    $pret->prt_commentaire = $prt_commentaire;
+	    
+	    $pret->save();
+	    echo "Enregistement OK";
+	}
+	
 	
 	
 	

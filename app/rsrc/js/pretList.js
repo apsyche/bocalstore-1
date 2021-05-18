@@ -186,13 +186,9 @@ $(function() {
 			width: 700,
 			buttons: {
 				"Enregistrer": function(){ 
-					
-					
 					if($("#prt_nom").val().length < 1)		{ alert ("Nom obligatoire!");		return (0); }
 					if($("#prt_prenom").val().length < 1)	{ alert ("Prénom obligatoire !");	return (0); }
 					if($("#prt_email").val().length < 1)	{ alert (" Email obligatoire") ; 	return (0); }
-					
-					
 				    var form_data = new FormData();                   
 					form_data.append("prd_id",				$("#prd_id").val());
 					form_data.append("prt_nom",				$("#prt_nom").val());
@@ -203,11 +199,7 @@ $(function() {
 					form_data.append("prt_date_pret",		$("#prt_date_pret").val());
 					form_data.append("prt_date_retour_prevu",		$("#prt_date_retour_prevu").val());
 					form_data.append("prt_commentaire",		$("#prt_commentaire").val());
-	
-					
-					
-								
-				    
+
 					$.ajax({
 						url: "!pretList!AddPret", 
 						type: "POST", 

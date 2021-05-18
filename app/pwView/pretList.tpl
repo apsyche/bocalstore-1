@@ -92,7 +92,7 @@
 			</tr>
 			<tr>
 				<td align="right" style="width: 40%">E-mail&nbsp;&nbsp;&nbsp;</td>
-				<td><input class="form-control" type="text" id="prt_prenom" name="prt_prenom"></td>
+				<td><input class="form-control" type="text" id="prt_email" name="prt_email"></td>
 			</tr>
 			<tr>
 				<td align="right" style="width: 40%">Numéro de téléphone &nbsp;&nbsp;&nbsp;</td>

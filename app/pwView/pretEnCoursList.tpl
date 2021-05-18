@@ -16,19 +16,19 @@
 <br>
 <table class="table table-hover  table-condensed ">
 	<tr>
-		<th>Produits</th>
-		<th>Produits</th>
+		<th>Nom</th>
+		<th>Prénom</th>
 		<th>Produits</th>
 		<th>Produits</th>
 		<th>Produits</th>
 	</tr>
 	{foreach from=$pretEnCours item=row}
-	<tr onclick="select('{$row.fur_id}')">
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
+	<tr onclick="select('{$row.prt_id}')">
+		<td>{$row.prt_nom}</td>
+		<td>{$row.prt_prenom}</td>
+		<td>{$row.prt_id}</td>
+		<td>{$row.prt_id}</td>
+		<td>{$row.prt_id}</td>
 	</tr>
 	{/foreach}
 

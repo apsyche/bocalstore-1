@@ -45,9 +45,9 @@ class PwCSV {
 	 * fonction de sortie du fichier avec un nom spécifique.
 	 */
 	function output($NomFichier) {
-		header ( "Content-type: application/vnd.ms-excel" );
-		header ( "Content-disposition: attachment; filename=$NomFichier.csv" );
-		print $this->csv;
+		header ( "Content-Type: text/csv" );
+		header ( "Content-Disposition: attachment; filename=\"".$NomFichier.".csv\"" );
+		echo $this->csv;
 		exit ();
 	}
 }

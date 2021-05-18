@@ -71,7 +71,7 @@
 		<table class="table table-hover  table-condensed ">
 			<tr>
 				<th>Nom Document</th>
-				<th>{$listTypeDoc[$r.gedd_type]}</th>
+				<th>Type</th>
 				<th>Description</th>
 
 				<th>Fichier</th>

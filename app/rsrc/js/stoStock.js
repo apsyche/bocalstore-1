@@ -70,18 +70,11 @@ $(function() {
 			   },
 			   async: false, 
 			   success : function(data) {
-				   var blob = new Blob([data], { type: 'application/vnd.ms-excel' });
-				   
-				   if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-					   window.navigator.msSaveOrOpenBlob(blob); // for IE
-				   }
-				   else {
-					   var fileURL = URL.createObjectURL(blob);
-					   var newWin = window.open(fileURL);
-					   newWin.focus();
-					   newWin.reload();
-				   }
-				
+				   var blob = new Blob([data], { type: 'text/csv' });
+				   var fileURL = URL.createObjectURL(blob);
+				   var newWin = window.open(fileURL);
+				   newWin.focus();
+				   newWin.reload();
 			   },
 			   error : function(xhr, ajaxOptions, thrownError) {
 				   alert("save access error." + "\nstatusText: " + xhr.statusText
