@@ -96,7 +96,7 @@
 			</tr>
 			<tr>
 				<td align="right" style="width: 40%">Numéro de téléphone &nbsp;&nbsp;&nbsp;</td>
-				<td><input class="form-control" type="text" id="prt_num_tel" name="prt_num_tel"></td>
+				<td><input class="form-control" type="text" id="prt_num_tel" name="prt_num_tel" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></td>
 			</tr>
 			<tr>
 				<td align="right" style="width: 40%">Niveau d'étude&nbsp;&nbsp;&nbsp;	</td>

@@ -19,16 +19,18 @@
 		<th>Nom</th>
 		<th>Prénom</th>
 		<th>Produits</th>
-		<th>Produits</th>
-		<th>Produits</th>
+		<th>Date de debut</th>
+		<th>Date de retour prévu</th>
+		<th>Téléphone</th>
 	</tr>
 	{foreach from=$pretEnCours item=row}
 	<tr onclick="select('{$row.prt_id}')">
 		<td>{$row.prt_nom}</td>
 		<td>{$row.prt_prenom}</td>
-		<td>{$row.prt_id}</td>
-		<td>{$row.prt_id}</td>
-		<td>{$row.prt_id}</td>
+		<td>{$row.prd_nom}</td>
+		<td>{$row.prt_date_pret}</td>
+		<td>{$row.prt_date_retour_prevu}</td>
+		<td>{$row.prt_num_tel}</td>
 	</tr>
 	{/foreach}
 

@@ -16,19 +16,21 @@
 <br>
 <table class="table table-hover  table-condensed ">
 	<tr>
+		<th>Nom</th>
+		<th>Prénom</th>
 		<th>Produits</th>
-		<th>Produits</th>
-		<th>Produits</th>
-		<th>Produits</th>
-		<th>Produits</th>
+		<th>Date de debut</th>
+		<th>Date de retour prévu</th>
+		<th>Téléphone</th>
 	</tr>
 	{foreach from=$pretRetard item=row}
 	<tr onclick="select('{$row.fur_id}')">
+		<td>{$row.prt_nom}</td>
+		<td>{$row.prt_prenom}</td>
 		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
-		<td>{$row.prd_nom}</td>
+		<td>{$row.prt_date_pret}</td>
+		<td>{$row.prt_date_retour_prevu}</td>
+		<td>{$row.prt_num_tel}</td>
 	</tr>
 	{/foreach}
 
