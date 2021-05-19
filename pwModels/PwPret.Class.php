@@ -10,7 +10,7 @@ class PwPret extends PwModel {
 	
 	public static function getListEnCoursDePret() {
 	    
-	    $cmd = "SELECT * FROM pret where prt_date_retour = '' order by prt_date_pret ;";
+	    $cmd = "SELECT * FROM pret left outer join produit on (pret.prt_prd_id = produit.prd_id ) where prt_date_retour = '' order by prt_date_pret;";
 	    $prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
 	    $prep->execute ();
 	    $list = $prep->fetchAll ( PDO::FETCH_ASSOC );
@@ -21,7 +21,7 @@ class PwPret extends PwModel {
 	
 	public static function getListHistorique() {
 	    
-	    $cmd = "SELECT * FROM pret where prt_date_retour <> '' order by prt_date_pret ;";
+	    $cmd = "SELECT * FROM pret left outer join produit on (pret.prt_prd_id = produit.prd_id ) where prt_date_retour <> '' order by prt_date_pret ;";
 	    $prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
 	    $prep->execute ();
 	    $list = $prep->fetchAll ( PDO::FETCH_ASSOC );
@@ -34,7 +34,7 @@ class PwPret extends PwModel {
 	    
 	    $date = date("Y-m-d");
 	    
-	    $cmd = "SELECT * FROM pret where 
+	    $cmd = "SELECT * FROM pret left outer join produit on (pret.prt_prd_id = produit.prd_id ) where 
                 prt_date_retour = '' and 
                 prt_date_retour_prevu < '$date'
                 order by prt_date_pret ;";

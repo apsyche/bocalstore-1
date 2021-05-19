@@ -1,12 +1,29 @@
+function isEmail(email) {
+  var EmailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return EmailRegex.test(email);
+}
+
 $(function() {
 	
 
 	$(function() {
-		$("#prt_date_pret").datepicker();
+		$("#prt_date_pret").datepicker({ 
+		changeMonth: true, 
+		numberOfMonths: 2, 
+		onClose: function(date) { 
+		$("#prt_date_retour_prevu").datepicker("option", "minDate", date); 
+} 
+}); 
 	});
 	
 	$(function() {
-		$("#prt_date_retour_prevu").datepicker();
+		$("#prt_date_retour_prevu").datepicker({ 
+			changeMonth: true, 
+			numberOfMonths: 2, 
+			onClose: function(selectedDate) { 
+			$("#prt_date_pret").datepicker("option", "maxDate", date); 
+} 
+});
 	});
 	
 	
@@ -179,8 +196,6 @@ $(function() {
 		$("#prt_commentaire").val('');
 
 		
-		
-		
 		$("#addPretMat").dialog({
 			modal: true,
 			width: 700,
@@ -189,6 +204,10 @@ $(function() {
 					if($("#prt_nom").val().length < 1)		{ alert ("Nom obligatoire!");		return (0); }
 					if($("#prt_prenom").val().length < 1)	{ alert ("Prénom obligatoire !");	return (0); }
 					if($("#prt_email").val().length < 1)	{ alert (" Email obligatoire") ; 	return (0); }
+					if(isEmail($("#fur_mail_corresp").val())==false){
+          				alert("Mail non valide.");
+          				return (0);
+       				 }
 				    var form_data = new FormData();                   
 					form_data.append("prd_id",				$("#prd_id").val());
 					form_data.append("prt_nom",				$("#prt_nom").val());
