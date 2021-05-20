@@ -22,6 +22,7 @@
 		<th>Date de debut</th>
 		<th>Date de retour prévu</th>
 		<th>Téléphone</th>
+		<th></th>
 	</tr>
 	{foreach from=$pretEnCours item=row}
 	<tr onclick="select('{$row.prt_id}')">
@@ -31,6 +32,7 @@
 		<td>{$row.prt_date_pret}</td>
 		<td>{$row.prt_date_retour_prevu}</td>
 		<td>{$row.prt_num_tel}</td>
+		<td><button type="button" onclick="Rendu('{$row.prt_id}');">Rendu</button></td>
 	</tr>
 	{/foreach}
 

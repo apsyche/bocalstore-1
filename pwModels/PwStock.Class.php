@@ -138,12 +138,13 @@ class PwStock extends PwModel {
 	    
 	    $order_by = " order by sto_date_achat DESC , sto_id ASC ";
 	    
-	    $cmd = "SELECT DISTINCT sto_prd_id, stock.sto_num_inventaire , fournisseur.*, produit.*, categorie.* , service.*  from stock
+	    $cmd = "SELECT DISTINCT pret.prt_id, sto_prd_id, stock.sto_id, stock.sto_num_inventaire , fournisseur.*, produit.*, categorie.* , service.*  from stock
 	        
 				left outer join fournisseur on (fournisseur.fur_id = stock.sto_fur_id )
 				left outer join produit on (produit.prd_id = stock.sto_prd_id  )
 				left outer join categorie on (categorie.cat_id = stock.sto_cat_id )
                 left outer join service on (service.srv_id = stock.sto_srv_id )
+                left outer join pret on (pret.prt_prd_id = stock.sto_prd_id )
 				where
 				sto_del = '0' and  stock.sto_pret = 1 "
 	            . $where . $order_by 

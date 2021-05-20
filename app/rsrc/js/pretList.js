@@ -26,7 +26,7 @@ $(function() {
 });
 	});
 	
-	
+
 	
 	
 	printList=function(){
@@ -155,6 +155,7 @@ $(function() {
 		var note = "";
 		var nbr = 0;
 		$.each(list, function(key, row) {
+			if(row['prt_id']==''){
 			nbr++;
 			var ttc = ((row['prd_prix_ht'] * row['prd_tva'])/100)+row['prd_prix_ht'];
 			ttc = parseFloat(ttc).toFixed(2); 
@@ -167,12 +168,12 @@ $(function() {
 						"<td>"+row['sto_date_achat']+"</td>"+
 						"<td>"+row['srv_nom'] +"</td>"+
 						"<td>  " + 
-							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"pretAdd('"+row['prd_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
+							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"pretAdd('"+row['prd_id']+","+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
 						" </td>"+
 					"</tr>"
 			); 																					   
 	
-			
+			}
 		});
 		$("#tableMateriel").append("</table>");
 		
@@ -204,7 +205,7 @@ $(function() {
 					if($("#prt_nom").val().length < 1)		{ alert ("Nom obligatoire!");		return (0); }
 					if($("#prt_prenom").val().length < 1)	{ alert ("Prénom obligatoire !");	return (0); }
 					if($("#prt_email").val().length < 1)	{ alert (" Email obligatoire") ; 	return (0); }
-					if(isEmail($("#fur_mail_corresp").val())==false){
+					if(isEmail($("#prt_email").val())==false){
           				alert("Mail non valide.");
           				return (0);
        				 }
