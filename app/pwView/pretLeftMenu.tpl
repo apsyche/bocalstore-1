@@ -11,7 +11,7 @@
 
 	<ul class="nav nav-sidebar">
 		<li><a href="home!index"><span class="glyphicon glyphicon-th"></span>&nbsp;
-				Tableau de brord&nbsp;&nbsp;</a></li>
+				Tableau de bord&nbsp;&nbsp;</a></li>
 	</ul>
 
 	<ul class="nav nav-sidebar">
