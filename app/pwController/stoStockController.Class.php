@@ -137,7 +137,7 @@ class stoStockController extends PwController {
     		$obj->sto_fur_id=$_POST['sto_fur_id'];
     		$obj->sto_prd_id=$_POST['sto_prd_id'];
     		$obj->sto_cat_id=$_POST['sto_cat_id'];
-    		$obj->sto_libele_prd=$_POST['sto_prd_id2'];
+    		$obj->sto_libele_prd=$_POST['sto_prd_id'];
     		$obj->sto_date_achat=$_POST['sto_date_achat'];
     		$obj->sto_annne_amortissement=$_POST['sto_annne_amortissement'];
     		$obj->sto_srv_id=$_POST['sto_srv_id'];

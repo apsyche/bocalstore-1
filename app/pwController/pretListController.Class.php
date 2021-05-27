@@ -83,6 +83,7 @@ class pretListController extends PwController {
 
 	public function actionAddPret() {
 	    $prd_id 	= (isset ($_POST['prd_id']))? $_POST['prd_id']:"";  // produit 
+	    $sto_id = (isset ($_POST['sto_id']))? $_POST['sto_id']:"";
 	    
 	    $prt_nom = (isset ($_POST['prt_nom']))? $_POST['prt_nom']:"";
 	    $prt_prenom = (isset ($_POST['prt_prenom']))? $_POST['prt_prenom']:"";
@@ -98,6 +99,7 @@ class pretListController extends PwController {
 	    //$pret->$prt_user_id =""; // a voir 
 	    $pret->prt_prd_id = $prd_id;
 	    $pret->prt_nom = $prt_nom;
+	    $pret->prt_sto_id = $sto_id;
 	    $pret->prt_prenom =$prt_prenom;
 	    $pret->prt_email = $prt_email;
 	    $pret->prt_diplome = $prt_diplome;
@@ -110,8 +112,12 @@ class pretListController extends PwController {
 	    echo "Enregistement OK";
 	}
 	
-	
-	
-	
+	public function actionRendu() {
+	    $prt_id 	= (isset ($_POST['prt_id']))? $_POST['prt_id']:""; 
+	    $retour = PwPret::setEtat($_POST['prt_id']);
+	    echo $retour;
+
+
+	}
 	
 }
