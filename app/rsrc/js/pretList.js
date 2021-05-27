@@ -155,6 +155,7 @@ $(function() {
 		var note = "";
 		var nbr = 0;
 		$.each(list, function(key, row) {
+			//if(row['prt_date_retour']!='0000-00-00'){
 			if(row['prt_id']==''){
 			nbr++;
 			var ttc = ((row['prd_prix_ht'] * row['prd_tva'])/100)+row['prd_prix_ht'];
@@ -168,11 +169,11 @@ $(function() {
 						"<td>"+row['sto_date_achat']+"</td>"+
 						"<td>"+row['srv_nom'] +"</td>"+
 						"<td>  " + 
-							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"pretAdd('"+row['prd_id']+","+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
+							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
 						" </td>"+
 					"</tr>"
 			); 																					   
-	
+			//}
 			}
 		});
 		$("#tableMateriel").append("</table>");
@@ -184,7 +185,7 @@ $(function() {
 	/**
 	 * pretAdd
 	 */
-	pretAdd = function(prd_id) {
+	pretAdd = function(prd_id,sto_id) {
 		
 		$("#prd_id").val(prd_id);
 		$("#prt_nom").val('');
@@ -211,6 +212,7 @@ $(function() {
        				 }
 				    var form_data = new FormData();                   
 					form_data.append("prd_id",				$("#prd_id").val());
+					form_data.append("sto_id",				sto_id);
 					form_data.append("prt_nom",				$("#prt_nom").val());
 					form_data.append("prt_prenom",			$("#prt_prenom").val());
 					form_data.append("prt_email",			$("#prt_email").val());
@@ -231,7 +233,7 @@ $(function() {
 						 if(data.length >0){
 							 alert(data);
 						 }
-						   	refresh();
+						   	location.reload();
 						 },
 						   error:function(xhr, ajaxOptions, thrownError){
 						   alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);

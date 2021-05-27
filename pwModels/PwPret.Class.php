@@ -46,12 +46,13 @@ class PwPret extends PwModel {
 	}
 
 	public static function setEtat($prt_id) {//produit rendu
-	    $date = date("Y-m-d");
-	    $cmd = "UPDATE pret SET prt_date_retour = '$date' WHERE prt_id=:id";
+	    $cmd = "UPDATE pret SET prt_date_retour = NOW() WHERE prt_id=:id";
 	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
 	    $prep = $inst->prepare ( $cmd );
 	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
 	    $prep->execute ();
+	    
+	    return "Produit rendu";
 	    
 	}
 	

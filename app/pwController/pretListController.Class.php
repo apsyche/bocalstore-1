@@ -113,14 +113,10 @@ class pretListController extends PwController {
 	}
 	
 	public function actionRendu() {
-	    if(isset ($_POST['prt_id'])){
-	        //$pret = new PwPret();
-	        //$pret->prt_id = $_POST['prt_id'];
-	        PwPret::setEtat($_POST['prt_id']);
-	    }else{
-	        $prt_id = (isset ($_POST['prt_id']))? $_POST['prt_id']:"";
-	        echo $prt_id;
-	    }
+	    $prt_id 	= (isset ($_POST['prt_id']))? $_POST['prt_id']:""; 
+	    $retour = PwPret::setEtat($_POST['prt_id']);
+	    echo $retour;
+
 
 	}
 	
