@@ -222,7 +222,52 @@ refresh = function() {
 }
 
 
-
+/**
+* recherche dynamique 
+**/
+$("#num_inv").keyup(function(){
+	refresh();
+});
+$("#srv_id").click(function(){
+	refresh();
+});
+$("#sto_date_achat_deb").datepicker({
+	changeMonth: true,
+	changeYear: true,
+	showButtonPanel: true,
+	onSelect: function(){
+		refresh();
+	}
+});
+$("#sto_date_achat_fin").datepicker({
+	changeMonth: true,
+	changeYear: true,
+	showButtonPanel: true,
+	onSelect: function(){
+		refresh();
+	}
+});
+$("#cat_id").click(function(){
+	refresh();
+});
+$("#prd_id").click(function(){
+	refresh();
+});
+$("#nom_prod").keyup(function(){
+	refresh();
+});
+$("#fur_id").click(function(){
+	refresh();
+});
+$("#groupBy_id").click(function(){
+	refresh();
+});
+$("#limit").click(function(){
+	refresh();
+});
+$("#hors_inv").click(function(){
+	refresh();
+});
 
 
 del=function(pid,sto_total){
