@@ -64,7 +64,8 @@
 				<td>{$listTypeDoc[$r.gedd_type]}</td>
 				<td>{str_replace("_"," ",$r.gedd_description)}</td>
 				<td><a href="gedList!ReadFile!{$r.gedd_id}">{$r.gedd_nom_file}</a></td>
-				<td><button type="button" class="btn btn-danger btn-xs"
+				<td><button type="button" class="btn btn-danger btn-xs" {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if};
 						onclick="delDoc('{$r.gedd_id}');">
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 					</button></td>

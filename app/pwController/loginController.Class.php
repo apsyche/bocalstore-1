@@ -43,6 +43,7 @@ class loginController extends PwController {
 			$_SESSION ['usr_right_inv'] 	= $user->usr_right_inv;
 			$_SESSION ['usr_right_pret'] 	= $user->usr_right_pret;
 			$_SESSION ['usr_right_ged'] 	= $user->usr_right_ged;
+			$_SESSION ['usr_right_lecture'] 	= $user->usr_right_lecture;
 
 			
 			echo "1";

@@ -18,13 +18,15 @@
 	</div>
 
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default " onclick="addMultiples();">
+		<button type="button" class="btn btn-default " {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if}; onclick="addMultiples();">
 			<span class="glyphicon glyphicon-tags " aria-hidden="true" style="color: #428bca;"></span> &nbsp; Ajout multiple
 		</button>
 	</div>
 	
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default " onclick="edit('N');">
+		<button type="button" class="btn btn-default " {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if}; onclick="edit('N');">
 			<span class="glyphicon glyphicon-download-alt " aria-hidden="true" style="color: #428bca;"></span> &nbsp; Ajouter Produit à l'inventaire
 		</button>
 	</div>
