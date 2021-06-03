@@ -179,8 +179,8 @@ refresh = function() {
 					"<td>"+row['srv_nom'] +"</td>"+
 					"<td>"+row['sto_total'] +"</td>"+
 					"<td>  " +
-						"<button id=\"locklecture\" type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
-						"<button id=\"locklecture\" type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"del('"+row['sto_id']+"','"+row['sto_total']+"');\"> <span class=\"glyphicon glyphicon-trash \"></span></button>" +
+						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"\{/if}; onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
+						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					\{if $smarty.session.usr_right_lecture eq '1'\}disabled=\"disabled\"\{if\}; onclick=\"del('"+row['sto_id']+"','"+row['sto_total']+"');\"> <span class=\"glyphicon glyphicon-trash \"></span></button>" +
 					" </td>"+
 				"</tr>"
 		); 																					   
