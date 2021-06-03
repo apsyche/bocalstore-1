@@ -51,4 +51,5 @@ class loginController extends PwController {
 			echo "0";
 		}
 	}
+
 }

@@ -100,7 +100,7 @@
 		
 
 	</table>
-			
+	<script>document.getElementById("locklecture").disabled = true;</script>{		
 </fieldset>
 
 <br>
