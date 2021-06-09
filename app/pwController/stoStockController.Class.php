@@ -186,6 +186,13 @@ class stoStockController extends PwController {
 		echo "Suppression terminée !";
 	}
 	
+	public function actionProdWCat() {
+	    $cat_id= $_POST['cat_id'];
+	    $list = PwProduit::getSelecListParam($cat_id);
+	    $return = json_encode ( $list );
+	    echo $return;
+	}
+	
 }
 
 
