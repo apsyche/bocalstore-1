@@ -68,7 +68,32 @@ $("#cat_id").click(function(){
 });	
 	
 	printList=function(){
-		location.href = "stoPdf!index!matList!";
+		/*
+		var num_inv = $("#num_inv").val();
+		var num_srv = $("#num_srv").val();
+		var nom_prod = $("#nom_prod").val();
+		var prd_id = $("#prd_id").val();
+		var cat_id = $("#cat_id").val();
+		var srv_id = $("#srv_id").val();
+		$.ajax({
+  			type: "POST",
+  			url: "pretPdf!index!matList!",
+  			data: {
+				   num_inv					: num_inv,
+				   num_srv					: num_srv,
+				   nom_prod					: nom_prod,
+				   prd_id					: prd_id,
+				   cat_id					: cat_id,
+				   srv_id					: srv_id
+				   
+			   },
+  			success: function(data){
+	location.href = "pretPdf!index!matList!";
+},
+  			dataType: dataType
+});*/
+
+		location.href = "pretPdf!index!matList!";
 	}
 	
 	/**
@@ -185,7 +210,6 @@ $("#cat_id").click(function(){
 					"<th>Catégorie</th>"+
 					"<th>Produit</th>"+
 					"<th>Fournisseur</th>"+
-					"<th>Date Achat </th>"+
 					"<th>Affectation</th>"+
 					"<th>Prêt</th>"+
 				"</tr></thead><tbody>"
@@ -204,7 +228,6 @@ $("#cat_id").click(function(){
 					    "<td>"+row['cat_nom'] +"</td>"+
 						"<td>"+row['prd_nom'] +"</td>"+
 						"<td>"+row['fur_raison_social'] +"</td>"+
-						"<td>"+row['sto_date_achat']+"</td>"+
 						"<td>"+row['srv_nom'] +"</td>"+
 						"<td>  " + 
 							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
