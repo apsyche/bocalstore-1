@@ -86,5 +86,9 @@ class prdListController extends PwController {
 	}
 	
 	
+	public function actionGetLecture() {
+	    echo $_SESSION['usr_right_lecture'];
+	}
+	
 	
 }

@@ -51,6 +51,19 @@ class PwProduit extends PwModel {
 	    return $lst;
 	}
 	
+	public static function getSelecListParam($Cat) {
+	    
+	    $list = self::getFullList();
+	    $lst[0]="-";
+	    foreach ( $list as $row ) {
+	        if($row ['prd_cat_id']==$Cat){
+	            $lst [$row ['prd_id']] = $row ['prd_nom'];
+	        }
+	    }
+	    return $lst;
+	}
+	
+	
 	
 	protected $prd_id = "";
 	protected $prd_cat_id = "";

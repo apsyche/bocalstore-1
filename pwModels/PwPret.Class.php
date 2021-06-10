@@ -21,7 +21,7 @@ class PwPret extends PwModel {
 	
 	public static function getListHistorique() {
 	    
-	    $cmd = "SELECT * FROM pret left outer join produit on (pret.prt_prd_id = produit.prd_id ) where prt_date_retour <> '' order by prt_date_pret ;";
+	    $cmd = "SELECT * FROM pret_histo left outer join produit on (pret_histo.prt_prd_id = produit.prd_id ) where prt_date_retour <> '' order by prt_date_pret ;";
 	    $prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
 	    $prep->execute ();
 	    $list = $prep->fetchAll ( PDO::FETCH_ASSOC );
@@ -46,7 +46,22 @@ class PwPret extends PwModel {
 	}
 
 	public static function setEtat($prt_id) {//produit rendu
-	    $cmd = "UPDATE pret SET prt_date_retour = NOW() WHERE prt_id=:id";
+	    //maj date rendu
+	    $cmd = "UPDATE pret SET prt_date_retour = NOW() WHERE prt_id=:id;";
+	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
+	    $prep = $inst->prepare ( $cmd );
+	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
+	    $prep->execute ();
+	   
+	    //change table
+	    $cmd = "INSERT INTO pret_histo SELECT * FROM pret WHERE prt_id=:id;";
+	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
+	    $prep = $inst->prepare ( $cmd );
+	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
+	    $prep->execute ();
+	    
+	    //remove tableau pret en cours
+	    $cmd = "DELETE FROM pret WHERE prt_id=:id;";
 	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
 	    $prep = $inst->prepare ( $cmd );
 	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);

@@ -15,6 +15,9 @@ class paramController extends PwController {
 		if ($_SESSION['usr_right_param'] != 1){
 			header ( "Location: " . "!home!index" );
 		}
+		if ($_SESSION['usr_right_lecture'] != 0){
+		    header ( "Location: " . "!home!index" );
+		}
 		include_once '../app/pwController/paramUserController.Class.php';
 		include_once '../app/pwController/paramInfoController.Class.php';
 		include_once '../app/pwController/paramServiceController.Class.php';

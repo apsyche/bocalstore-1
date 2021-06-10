@@ -19,6 +19,7 @@
 			<th><p class="verticalText"> Inventaire </p></th>
 			<th><p class="verticalText"> Prêt </p></th>
 			<th><p class="verticalText"> Ged </p></th>
+			<th><p class="verticalText"> Lecture </p></th>
 			<th><p class="verticalText"> Paramétrage </p></th>
 			<th><p class=""> Fonctions</p></th>
 		</tr>
@@ -33,13 +34,14 @@
 			<td>{if $row.usr_right_inv} <span class="glyphicon glyphicon-ok-sign" ></span> {/if}</td>
 			<td>{if $row.usr_right_pret } <span class="glyphicon glyphicon-ok-sign" ></span> {/if}</td>
 			<td>{if $row.usr_right_ged } <span class="glyphicon glyphicon-ok-sign" ></span> {/if}</td>
+			<td>{if $row.usr_right_lecture} <span class="glyphicon glyphicon-ok-sign" ></span> {/if}</td>
 			<td>{if $row.usr_right_param} <span class="glyphicon glyphicon-ok-sign" ></span> {/if}</td>
 
 
 			<td style="width: 100px">
  			<a class="btn btn-default btn-sm" onclick="editUser('E','{$row.usr_id}','{$row.usr_lname|pwAddslashes}','{$row.usr_fname|pwAddslashes}','{$row.usr_login}',
  																'{$row.usr_mail|pwAddslashes}','{$row.usr_right_four}','{$row.usr_right_cmd}','{$row.usr_right_inv}','{$row.usr_right_pret}'
- 																,'{$row.usr_right_ged}','{$row.usr_right_param}');">
+ 																,'{$row.usr_right_ged}','{$row.usr_right_param}','{$row.usr_right_lecture}');">
  			<i class="glyphicon glyphicon-edit"></i></a> 
  		
  			<a class="btn btn-default btn-sm" onclick="del('{$row.usr_id}');"> <i class="glyphicon glyphicon-trash"></i>
@@ -101,7 +103,11 @@
 				
 				<td align="right" style="width: 40%">Paramètrage&nbsp;&nbsp;&nbsp;</td>
 				<td> <input  id="usr_right_param" name="usr_right_param"  class="form-control" type="checkbox" value="1"></label></td>
-			</tr>		
+			</tr>
+			<tr>
+				<td align="right" style="width: 40%">Lecture&nbsp;&nbsp;&nbsp;</td>
+				<td> <input  id="usr_right_lecture" name="usr_right_lecture"  class="form-control" type="checkbox" value="1"></label></td>
+			</tr>			
 		</table>
 		
 	</form>

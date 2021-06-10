@@ -89,6 +89,8 @@
 			<tr onclick="openPage('param!index!paramInfo')">
 				<td><img alt="Résident"
 					src="rsrc/icons/png_icons/128/setting-icon985.png"
+					{if $smarty.session.usr_right_lecture eq '1'}class="grayscale"
+					{/if};
 					{if $smarty.session.usr_right_param eq '0'}class="grayscale"
 					{/if};
 					style="width: 80px; height: 75px;"> <b>Paramètre</b>

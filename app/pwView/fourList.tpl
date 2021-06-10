@@ -5,8 +5,10 @@
 
 <div class="btn-group btn-group-justified" role="group"
 	style="width: 100%;">
-	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default" onclick="select('');">
+	<div class="btn-group" 	role="group">
+		<button type="button" class="btn btn-default" 
+			{if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if}; onclick="select('') ">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"
 				style="color: #428bca;"></span> &nbsp; Ajouter Fournisseur
 		</button>

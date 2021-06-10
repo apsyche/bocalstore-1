@@ -7,6 +7,7 @@
 
 <body role="document">
 
+
 		{include file="topToolBar.tpl"} <br>
 
 		<div class="container-fluid">
@@ -16,14 +17,12 @@
 				</div>
 				<div class="col-md-10 pagediv">
 					{include file={$frametpl}}
-
 				</div>
 
 
 			</div>
 
 		</div>
-
 </body>
 
 </html>

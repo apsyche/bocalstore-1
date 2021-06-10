@@ -86,6 +86,7 @@ class PwUser extends PwModel {
 	protected $usr_right_inv = "";
 	protected $usr_right_pret = "";
 	protected $usr_right_ged = "";
+	protected $usr_right_lecture = "";
 
 	protected $usr_deleted = "";
 	protected $usr_date_create = "";

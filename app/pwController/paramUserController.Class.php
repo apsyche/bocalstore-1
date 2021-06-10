@@ -47,6 +47,7 @@ class paramUserController extends PwController {
 		(isset($_POST['usr_right_inv']))	? $obj->usr_right_inv = 1 	:  $obj->usr_right_inv= 0;
 		(isset($_POST['usr_right_pret']))	? $obj->usr_right_pret = 1 	:  $obj->usr_right_pret= 0;
 		(isset($_POST['usr_right_ged']))	? $obj->usr_right_ged = 1   :  $obj->usr_right_ged= 0;
+		(isset($_POST['usr_right_lecture']))	? $obj->usr_right_lecture = 1   :  $obj->usr_right_lecture= 0;
 
 		
 		if($mode=='E'){

@@ -32,7 +32,8 @@
 		<td>{$row.prt_date_pret}</td>
 		<td>{$row.prt_date_retour_prevu}</td>
 		<td>{$row.prt_num_tel}</td>
-		<td><button type="button" onclick="Rendu('{$row.prt_id}');">Rendu</button></td>
+		<td><button type="button" {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if}; onclick="Rendu('{$row.prt_id}');">Rendu</button></td>
 	</tr>
 	{/foreach}
 
