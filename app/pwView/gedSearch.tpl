@@ -26,7 +26,7 @@
 		</legend>
 
 		<div class="row">
-			<div class="col-md-4">Type Docuement {html_options
+			<div class="col-md-4">Type de document{html_options
 				class="form-control" id='type' name='gedd_type'
 				options=$listTypeDoc}</div>
 			<div class="col-md-4">
@@ -51,7 +51,7 @@
 
 		<table class="table table-hover  table-condensed ">
 			<tr>
-				<th>Nom Document</th>
+				<th>Nom</th>
 				<th>Type</th>
 				<th>Description</th>
 

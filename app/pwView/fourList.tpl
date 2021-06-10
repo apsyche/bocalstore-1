@@ -28,8 +28,8 @@
 <table class="table table-hover  table-condensed ">
 	<tr>
 		<th>Fourniseur</th>
-		<th>Nom contact</th>
-		<th>Prénom contact</th>
+		<th>Nom du contact</th>
+		<th>Prénom du contact</th>
 		<th>Téléphone</th>
 		<th>Email</th>
 	</tr>

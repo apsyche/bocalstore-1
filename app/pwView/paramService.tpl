@@ -3,7 +3,7 @@
 
 
 	<ul class="nav nav-pills">
-			<li class="nav-item"><a class="nav-link active" onclick="editService('N');"><i class="glyphicon glyphicon-plus"></i> Ajouter emplacement</a></li>
+			<li class="nav-item"><a class="nav-link active" onclick="editService('N');"><i class="glyphicon glyphicon-plus"></i> Ajouter un emplacement</a></li>
 	</ul>
 
 	<br><br>

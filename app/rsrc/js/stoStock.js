@@ -158,9 +158,9 @@ refresh = function() {
 				"<th>Produit</th>"+
 				"<th>Fournisseur</th>"+
 				"<th>Date Achat </th>"+
-				"<th>Affectation</th>"+
+				"<th>Salle</th>"+
 				"<th>Total</th>"+
-				"<th>Fct</th>"+
+				"<th>Outils</th>"+
 			"</tr></thead><tbody>"
 	);
 	var note = "";
@@ -429,9 +429,9 @@ edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',st
 			"Enregistrer": function(){ 
 				
 				
-				if($("#sto_prd_id").val().length < 1)	{ alert ("Nom produit obligatoire !");		return (0); }
-				if($("#sto_cat_id").val().length < 1)	{ alert ("Nom catégorie obligatoire !");	return (0); }
-				if($("#sto_srv_id").val() == '')		{ alert ("Vérifier Affectation ") ; 		return (0); }
+				if($("#sto_prd_id").val()==0)	{ alert ("Produit obligatoire !");		return (0); }
+				if($("#sto_cat_id").val().length < 1)	{ alert ("Catégorie obligatoire !");	return (0); }
+				if($("#sto_srv_id").val() == '')		{ alert ("Vérifiez la salle ") ; 		return (0); }
 				
 				
 			    var form_data = new FormData();                   
@@ -512,9 +512,9 @@ addMultiples = function() {
 		buttons: {
 			"Enregistrer": function(){ 
 				
-				if($("#sto_prd_id2").val().length < 1)	{ alert ("Nom produit obligatoire !");		return (0); }
-				if($("#sto_cat_id2").val().length < 1)	{ alert ("Nom catégorie obligatoire !");	return (0); }
-				if($("#sto_srv_id2").val() == '')		{ alert ("Vérifier Affectation ") ; 		return (0); }
+				if($("#sto_prd_id2").val()==0)	{ alert ("Produit obligatoire !");		return (0); }
+				if($("#sto_cat_id2").val().length < 1)	{ alert ("Catégorie obligatoire !");	return (0); }
+				if($("#sto_srv_id2").val() == '')		{ alert ("Vérifiez la salle ") ; 		return (0); }
 				
 			    var form_data = new FormData();                   
 			    form_data.append("nbr_prd",				$("#nbr_prd").val());
