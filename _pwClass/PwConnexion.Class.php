@@ -48,7 +48,7 @@ class PwConnexion {
 	public static function checkConnexion() {
 		$connnexion = self::getInstance ();
 		if ($connnexion->isLogged === false) {
-			header ( "Location: " . "../index.php" );
+			header ( "Location: " . "index.php" );
 			exit ();
 		} else {
 			return true;

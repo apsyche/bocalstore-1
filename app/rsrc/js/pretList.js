@@ -169,7 +169,7 @@ $(function() {
 						"<td>"+row['sto_date_achat']+"</td>"+
 						"<td>"+row['srv_nom'] +"</td>"+
 						"<td>  " + 
-							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
+							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
 						" </td>"+
 					"</tr>"
 			); 																					   

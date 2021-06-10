@@ -1,6 +1,6 @@
 $(function() {
 
-	editUser=function(mode,usrId,lname,fname,login,mail,usr_right_four,usr_right_cmd,usr_right_inv,usr_right_pret,usr_right_ged,usr_right_param){
+	editUser=function(mode,usrId,lname,fname,login,mail,usr_right_four,usr_right_cmd,usr_right_inv,usr_right_pret,usr_right_ged,usr_right_param,usr_right_lecture){
 		if(mode == 'E'){
 			$("#usr_id").val(usrId);
 			$("#usr_lname").val(lname);
@@ -13,6 +13,7 @@ $(function() {
 			(usr_right_inv == '1' )		? $("#usr_right_inv").attr('checked', true):$("#usr_right_inv").attr('checked', false) ;
 			(usr_right_pret == '1' )	? $("#usr_right_pret").attr('checked', true):$("#usr_right_pret").attr('checked', false) ;
 			(usr_right_ged == '1')		? $("#usr_right_ged").attr('checked', true):$("#usr_right_ged").attr('checked', false) ;
+			(usr_right_lecture == '1')		? $("#usr_right_lecture").attr('checked', true):$("#usr_right_lecture").attr('checked', false) ;
 		}
 		
 		if(mode == 'N'){
@@ -28,6 +29,7 @@ $(function() {
 			$("#usr_right_inv").attr('checked', false) ;
 			$("#usr_right_pret").attr('checked', false) ;
 			$("#usr_right_ged").attr('checked', false) ;
+			$("#usr_right_lecture").attr('checked', false) ;
 
 		}
 		
@@ -79,7 +81,8 @@ $(function() {
 							   usr_right_cmd   : $("#usr_right_cmd").attr("checked"),
 							   usr_right_inv   : $("#usr_right_inv").attr("checked"),
 							   usr_right_pret  : $("#usr_right_pret").attr("checked"),
-							   usr_right_ged   : $("#usr_right_ged").attr("checked")
+							   usr_right_ged   : $("#usr_right_ged").attr("checked"),
+							   usr_right_lecture   : $("#usr_right_lecture").attr("checked")
 						   },
 						   async: false, 
 						   success: function(data){

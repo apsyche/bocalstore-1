@@ -179,8 +179,8 @@ refresh = function() {
 					"<td>"+row['srv_nom'] +"</td>"+
 					"<td>"+row['sto_total'] +"</td>"+
 					"<td>  " +
-						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
-						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" onclick=\"del('"+row['sto_id']+"','"+row['sto_total']+"');\"> <span class=\"glyphicon glyphicon-trash \"></span></button>" +
+						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"\{/if}; onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
+						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					\{if $smarty.session.usr_right_lecture eq '1'\}disabled=\"disabled\"\{if\}; onclick=\"del('"+row['sto_id']+"','"+row['sto_total']+"');\"> <span class=\"glyphicon glyphicon-trash \"></span></button>" +
 					" </td>"+
 				"</tr>"
 		); 																					   
@@ -221,54 +221,95 @@ refresh = function() {
 	});
 }
 
-
-/**
-* recherche dynamique 
-**/
-$("#num_inv").keyup(function(){
-	refresh();
-});
-$("#srv_id").click(function(){
-	refresh();
-});
-$("#sto_date_achat_deb").datepicker({
-	changeMonth: true,
-	changeYear: true,
-	showButtonPanel: true,
-	onSelect: function(){
-		refresh();
-	}
-});
-$("#sto_date_achat_fin").datepicker({
-	changeMonth: true,
-	changeYear: true,
-	showButtonPanel: true,
-	onSelect: function(){
-		refresh();
-	}
-});
 $("#cat_id").click(function(){
-	refresh();
-});
-$("#prd_id").click(function(){
-	refresh();
-});
-$("#nom_prod").keyup(function(){
-	refresh();
-});
-$("#fur_id").click(function(){
-	refresh();
-});
-$("#groupBy_id").click(function(){
-	refresh();
-});
-$("#limit").click(function(){
-	refresh();
-});
-$("#hors_inv").click(function(){
-	refresh();
+	var cat_id = $("#cat_id").val();
+	var listProd;
+	//suppr la liste des produits actuelle 
+	var sel = document.getElementById("prd_id");
+	for (i = sel.length - 1; i >= 0; i--) {
+	sel.remove(i);
+}
+	
+	var ajax_data = new FormData();                   
+		ajax_data.append("cat_id",				cat_id);
+		$.ajax({
+			   type: "POST", 
+			   url: "!stoStock!ProdWCat",
+				contentType : false,
+				processData : false,
+				async: false,
+				dataType: 'JSON',   
+			   data: ajax_data,
+			   success: function(data){
+				   listProd=data;
+			   },
+		  	   error:function(xhr, ajaxOptions, thrownError){
+					alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);
+			    	return;
+			   }
+		});
+		var i = 0;
+		let count = 0;
+			for(let key in listProd) {
+   				count ++;
+				}
+		$.each(listProd, function(key, row) {	
+            var opt = document.createElement('option');
+            opt.value = key;
+			opt.id = "prd_id-";
+            opt.text = row;
+            sel.appendChild(opt);	
+			i++;
+		});
+
+
 });
 
+$("#sto_cat_id2").click(function(){
+	var cat_id = $("#sto_cat_id2").val();
+	var listProd;
+	//suppr la liste des produits actuelle 
+	var sel = document.getElementById("sto_prd_id2");
+	for (i = sel.length - 1; i >= 0; i--) {
+	sel.remove(i);
+}
+	
+	var ajax_data = new FormData();                   
+		ajax_data.append("cat_id",				cat_id);
+		$.ajax({
+			   type: "POST", 
+			   url: "!stoStock!ProdWCat",
+				contentType : false,
+				processData : false,
+				async: false,
+				dataType: 'JSON',   
+			   data: ajax_data,
+			   success: function(data){
+				   listProd=data;
+			   },
+		  	   error:function(xhr, ajaxOptions, thrownError){
+					alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);
+			    	return;
+			   }
+		});
+		var i = 0;
+		let count = 0;
+			for(let key in listProd) {
+   				count ++;
+				}
+		$.each(listProd, function(key, row) {	
+            var opt = document.createElement('option');
+            opt.value = key;
+			opt.id = "prd_id-";
+            opt.text = row;
+            sel.appendChild(opt);	
+			i++;
+		});
+
+
+
+
+});
 
 del=function(pid,sto_total){
 		if((sto_total != '1')&&(sto_total != '')){

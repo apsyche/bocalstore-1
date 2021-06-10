@@ -5,7 +5,8 @@
 <div class="btn-group btn-group-justified" role="group"
 	style="width: 100%;">
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default" onclick="addDocs();">
+		<button type="button" class="btn btn-default" {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if}; onclick="addDocs();">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"
 				style="color: #428bca;"></span> &nbsp; Ajouter document.
 		</button>
@@ -40,7 +41,8 @@
 				<td>{$listTypeDoc[$r.gedd_type]}</td>
 				<td>{str_replace("_"," ",$r.gedd_description)}</td>
 				<td><a href="gedList!ReadFile!{$r.gedd_id}">{$r.gedd_nom_file}</a></td>
-				<td><button type="button" class="btn btn-danger btn-xs"
+				<td><button type="button" class="btn btn-danger btn-xs" {if $smarty.session.usr_right_lecture eq '1'} disabled="disabled"
+					{/if};
 						onclick="delDoc('{$r.gedd_id}');">
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 					</button></td>
