@@ -249,14 +249,10 @@ $("#cat_id").click(function(){
 			   }
 		});
 		var i = 0;
-		let count = 0;
-			for(let key in listProd) {
-   				count ++;
-				}
 		$.each(listProd, function(key, row) {	
             var opt = document.createElement('option');
             opt.value = key;
-			opt.id = "prd_id-";
+			opt.id = "prd_id-"+i;
             opt.text = row;
             sel.appendChild(opt);	
 			i++;
@@ -293,14 +289,10 @@ $("#sto_cat_id2").click(function(){
 			   }
 		});
 		var i = 0;
-		let count = 0;
-			for(let key in listProd) {
-   				count ++;
-				}
 		$.each(listProd, function(key, row) {	
             var opt = document.createElement('option');
             opt.value = key;
-			opt.id = "prd_id-";
+			opt.id = "sto_prd_id2-"+i;
             opt.text = row;
             sel.appendChild(opt);	
 			i++;
@@ -337,14 +329,10 @@ $("#sto_cat_id").click(function(){
 			   }
 		});
 		var i = 0;
-		let count = 0;
-			for(let key in listProd) {
-   				count ++;
-				}
 		$.each(listProd, function(key, row) {	
             var opt = document.createElement('option');
             opt.value = key;
-			opt.id = "prd_id-";
+			opt.id = "sto_prd_id-"+i;
             opt.text = row;
             sel.appendChild(opt);	
 			i++;

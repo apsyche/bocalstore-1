@@ -27,7 +27,45 @@ $(function() {
 	});
 	
 
+$("#cat_id").click(function(){
+	var cat_id = $("#cat_id").val();
+	var listProd;
+	//suppr la liste des produits actuelle 
+	var sel = document.getElementById("prd_id");
+	for (i = sel.length - 1; i >= 0; i--) {
+	sel.remove(i);
+}
 	
+	var ajax_data = new FormData();                   
+		ajax_data.append("cat_id",				cat_id);
+		$.ajax({
+			   type: "POST", 
+			   url: "!stoStock!ProdWCat",
+				contentType : false,
+				processData : false,
+				async: false,
+				dataType: 'JSON',   
+			   data: ajax_data,
+			   success: function(data){
+				   listProd=data;
+			   },
+		  	   error:function(xhr, ajaxOptions, thrownError){
+					alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);
+			    	return;
+			   }
+		});
+		var i = 0;
+		$.each(listProd, function(key, row) {	
+            var opt = document.createElement('option');
+            opt.value = key;
+			opt.id = "prd_id-"+i;
+            opt.text = row;
+            sel.appendChild(opt);	
+			i++;
+		});
+
+
+});	
 	
 	printList=function(){
 		location.href = "stoPdf!index!matList!";
