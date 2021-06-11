@@ -297,8 +297,6 @@ $("#sto_cat_id2").click(function(){
             sel.appendChild(opt);	
 			i++;
 		});
-
-
 });
 
 $("#sto_cat_id").click(function(){
@@ -337,8 +335,6 @@ $("#sto_cat_id").click(function(){
             sel.appendChild(opt);	
 			i++;
 		});
-
-
 });
 
 del=function(pid,sto_total){
