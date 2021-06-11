@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 03 juin 2021 à 14:35
+-- Généré le : ven. 11 juin 2021 à 19:05
 -- Version du serveur :  10.3.27-MariaDB-0+deb10u1
 -- Version de PHP : 7.3.27-1~deb10u1
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `bocalstore_bd`
 --
-CREATE DATABASE IF NOT EXISTS `bocalstore_bd` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `bocalstore_bd`;
 
 -- --------------------------------------------------------
 
@@ -231,7 +229,8 @@ CREATE TABLE `pret` (
   `prt_date_pret` date NOT NULL,
   `prt_date_retour_prevu` date NOT NULL,
   `prt_date_retour` date NOT NULL,
-  `prt_commentaire` varchar(1024) NOT NULL
+  `prt_commentaire` varchar(1024) NOT NULL,
+  `prt_com_rendu` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -254,17 +253,9 @@ CREATE TABLE `pret_histo` (
   `prt_date_pret` date NOT NULL,
   `prt_date_retour_prevu` date NOT NULL,
   `prt_date_retour` date NOT NULL,
-  `prt_commentaire` varchar(1024) COLLATE utf8_bin NOT NULL
+  `prt_commentaire` varchar(1024) COLLATE utf8_bin NOT NULL,
+  `prt_com_rendu` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Déchargement des données de la table `pret_histo`
---
-
-INSERT INTO `pret_histo` (`prt_id`, `prt_user_id`, `prt_sto_id`, `prt_prd_id`, `prt_nom`, `prt_prenom`, `prt_email`, `prt_diplome`, `prt_num_tel`, `prt_date_pret`, `prt_date_retour_prevu`, `prt_date_retour`, `prt_commentaire`) VALUES
-(15, 0, 223, 35, 'Hamsek', 'Lahoucine', 'hamsek.lahoucine@gmail.com', '4', '0651375716', '2021-06-16', '2021-07-05', '2021-06-03', 'fezfzefz'),
-(16, 0, 223, 35, 'Hamsek', 'Lahoucine', 'hamsek.lahoucine@gmail.com', '5', '0651375716', '2021-06-10', '2021-07-15', '2021-06-03', 'efzefzfez'),
-(17, 0, 241, 34, 'Hamsek', 'Lahoucine', 'hamsek.lahoucine@gmail.com', '6', '0651375716', '2021-06-02', '2021-07-06', '2021-06-03', 'hthrthr');
 
 -- --------------------------------------------------------
 
@@ -424,7 +415,8 @@ INSERT INTO `stock` (`sto_id`, `sto_fur_id`, `sto_prd_id`, `sto_libele_prd`, `st
 (203, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
 (202, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
 (201, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(200, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0);
+(200, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(249, 7, 0, '0', 32, '', '', '2021-06-01', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -460,7 +452,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`usr_id`, `usr_lname`, `usr_fname`, `usr_login`, `usr_psw`, `usr_mail`, `usr_active`, `usr_deleted`, `usr_date_create`, `usr_date_modify`, `usr_usr_create`, `usr_usr_modify`, `usr_right_param`, `usr_right_four`, `usr_right_cmd`, `usr_right_inv`, `usr_right_pret`, `usr_right_ged`, `usr_right_lecture`) VALUES
-(26, 'Djerroud', 'Halim', 'halim', '1d75dcced380911afbad64d9be84472b', 'halim.contact@gmail.com', 1, 0, '2016-07-04 16:37:51', '2021-06-03 14:17:27', 1, 26, 1, 1, 1, 1, 1, 1, 1),
+(26, 'Djerroud', 'Halim', 'halim', '1d75dcced380911afbad64d9be84472b', 'halim.contact@gmail.com', 1, 0, '2016-07-04 16:37:51', '2021-06-11 12:55:13', 1, 26, 1, 1, 1, 1, 1, 1, 0),
 (28, 'Outaleb', 'Achour', 'mazigh', 'c47699ddb759ceade4ceb3a6d93a9035', 'outaleb37@gmail.com', 1, 0, '2018-06-21 09:39:45', '2018-07-02 13:04:47', 26, 28, 1, 1, 1, 1, 1, 1, 0),
 (29, 'Mourad', 'Amara', 'mourad', '20c79ef8a4fcc250be4702fbd5045ffb', 'mourad.amara@gmail.com', 1, 0, '2018-06-25 09:16:18', '0000-00-00 00:00:00', 28, 0, 1, 1, 1, 1, 1, 1, 0),
 (30, 'Thibaudeau', 'Laurent', 'laurent', '34a321664be49e31c2368f6f42798a98', 'laurent.Thibaudeau@gmail.com', 1, 0, '2018-07-04 08:19:53', '2018-07-04 14:09:13', 28, 30, 1, 0, 1, 1, 1, 1, 0),
@@ -576,13 +568,13 @@ ALTER TABLE `information`
 -- AUTO_INCREMENT pour la table `pret`
 --
 ALTER TABLE `pret`
-  MODIFY `prt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `prt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `pret_histo`
 --
 ALTER TABLE `pret_histo`
-  MODIFY `prt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `prt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
@@ -600,7 +592,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT pour la table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `sto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
+  MODIFY `sto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
 
 --
 -- AUTO_INCREMENT pour la table `user`

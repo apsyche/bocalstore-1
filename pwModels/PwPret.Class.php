@@ -45,12 +45,14 @@ class PwPret extends PwModel {
 	    return $list;
 	}
 
-	public static function setEtat($prt_id) {//produit rendu
+	public static function setEtat($prt_id,$date,$com) {//produit rendu
 	    //maj date rendu
-	    $cmd = "UPDATE pret SET prt_date_retour = NOW() WHERE prt_id=:id;";
+	    
+	    $cmd = "UPDATE pret SET prt_date_retour = :date WHERE prt_id=:id;";
 	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
 	    $prep = $inst->prepare ( $cmd );
 	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
+	    $prep->bindValue( ':date', $date, PDO::PARAM_STR);
 	    $prep->execute ();
 	   
 	    //change table
@@ -58,6 +60,15 @@ class PwPret extends PwModel {
 	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
 	    $prep = $inst->prepare ( $cmd );
 	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
+	    $prep->execute ();
+	    
+	    
+	    //add commentaire
+	    $cmd = "UPDATE pret_histo SET prt_com_rendu = :com WHERE prt_id=:id;";
+	    $inst = PwPDO::getInstance ( PwPDO::DB_0 );
+	    $prep = $inst->prepare ( $cmd );
+	    $prep->bindValue( ':id', $prt_id, PDO::PARAM_INT);
+	    $prep->bindValue( ':com', $com, PDO::PARAM_STR);
 	    $prep->execute ();
 	    
 	    //remove tableau pret en cours
