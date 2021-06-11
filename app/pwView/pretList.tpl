@@ -17,9 +17,9 @@
 	</div>
 
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default" onclick="print('');">
+		<button type="button" class="btn btn-default" onclick="printList('');">
 			<span class="glyphicon glyphicon-print" aria-hidden="true"
-				style="color: #428bca;"></span> &nbsp; Imprimer la liste
+				style="color: #428bca;"></span> &nbsp; Imprimer toute la liste
 		</button>
 	</div>
 </div>

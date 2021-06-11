@@ -20,10 +20,10 @@
 			href="param!index!paramInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Informations&nbsp;&nbsp;</a></li>
 
 		<li class="{if $frame eq 'paramUser' }active{/if}"><a
-			href="param!index!paramUser"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Utilisateur&nbsp;&nbsp;</a></li>
+			href="param!index!paramUser"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Utilisateurs&nbsp;&nbsp;</a></li>
 				
 		<li class="{if $frame eq 'paramService' }active{/if}"><a
-			href="param!index!paramService"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Emplacement&nbsp;&nbsp;</a></li>
+			href="param!index!paramService"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Emplacements&nbsp;&nbsp;</a></li>
 
 		<li class="{if $frame eq 'paramAbout' }active{/if}"><a
 			href="param!index!paramAbout"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> À Propos&nbsp;&nbsp;</a></li>

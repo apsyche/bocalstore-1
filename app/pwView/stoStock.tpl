@@ -59,7 +59,7 @@
 			<div class="row">
 			  <div class="col-md-2">
 			  	<span class="glyphicon glyphicon-barcode" > </span>  Code barre <br> <input class="form-control" type="text" id="num_inv" name="num_inv"  value="">
-			  	<span class="glyphicon glyphicon-inbox" > </span> Emplacement {html_options class="form-control" id='srv_id' name='srv_id' options=$listService}
+			  	<span class="glyphicon glyphicon-inbox" > </span> Salle {html_options class="form-control" id='srv_id' name='srv_id' options=$listService}
 			  </div>
 			  <div class="col-md-2">
 			  	<span class="glyphicon glyphicon-calendar" > </span>  Date Achat Début <br> <input class="form-control" type="text" id="sto_date_achat_deb" name="sto_date_achat_deb"  value="" readonly="readonly">
@@ -73,7 +73,7 @@
 			  	
 			  </div>
 			  <div class="col-md-2">
-			  	 <span class="glyphicon glyphicon-bookmark" > </span> Libelé Produit<br><input class="form-control" type="text" id="nom_prod" name="nom_prod" value="">
+			  	 <span class="glyphicon glyphicon-bookmark" > </span>Libellé du produit<br><input class="form-control" type="text" id="nom_prod" name="nom_prod" value="">
 			  	 <span class="glyphicon glyphicon-download-alt" > </span> Fournisseurs {html_options class="form-control" id='fur_id' name='fur_id' options=$lisFournisseurs}
 			  </div>
 			  <div class="col-md-2">
@@ -130,17 +130,17 @@
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Nom Produit&nbsp;&nbsp;&nbsp;	</td>
+				<td align="right" style="width: 40%">Produit&nbsp;&nbsp;&nbsp;	</td>
 				<td>{html_options class="form-control" id='sto_prd_id' name='sto_prd_id' options=$listPrd}</td>
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Libelé Catégorie&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Libellé de la catégorie&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" id="sto_libele_cat" name="sto_libele_cat" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Libelé produit&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Libellé du produit&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" id="sto_libele_prd" name="sto_libele_cat" readonly="readonly"></td>
 			</tr>
 			
@@ -153,22 +153,22 @@
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_achat" name="sto_date_achat"  readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Prix Achat Indcatif &nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Prix d'achat indcatif &nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_prix_achat_ht" name="sto_prix_achat_ht" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Années Amortissement&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Années d'amortissement&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_annne_amortissement" name="sto_annne_amortissement"></td>
 			</tr>
 			
 			<tr id="tr_srv">
-				<td align="right" style="width: 40%">Service&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Salle&nbsp;&nbsp;&nbsp;</td>
 				<td>{html_options class="form-control" id='sto_srv_id' name='sto_srv_id' options=$listService}</td>
 			</tr>
 			
 		
 			<tr>
-				<td align="right" style="width: 40%">Sortie Inventaire&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Sortie inventaire&nbsp;&nbsp;&nbsp;</td>
 				<td>{html_options class="form-control" id='sto_sorti_inventaire' name='sto_sorti_inventaire' options=$yesNoList style="width: 40%" }</td>
 			</tr>
 			
@@ -178,7 +178,7 @@
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Date sorti inventaire&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Date de sorti de l'inventaire&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_sorti_inventaire" name="sto_date_sorti_inventaire" readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>
 			<tr>
@@ -208,7 +208,7 @@
 			
 			<tr>
 			<td></td>
-			<td>-</td>
+			<td></td>
 			</tr>
 		
 			<tr>
@@ -222,7 +222,7 @@
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Nom Produit&nbsp;&nbsp;&nbsp;	</td>
+				<td align="right" style="width: 40%">Produit&nbsp;&nbsp;&nbsp;	</td>
 				<td>{html_options class="form-control" id='sto_prd_id2' name='sto_prd_id2' options=$listPrd}</td>
 			</tr>
 			
@@ -238,7 +238,7 @@
 			</tr>
 			
 			<tr id="tr_srv">
-				<td align="right" style="width: 40%">Service&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Salle&nbsp;&nbsp;&nbsp;</td>
 				<td>{html_options class="form-control" id='sto_srv_id2' name='sto_srv_id2' options=$listService}</td>
 			</tr>
 			

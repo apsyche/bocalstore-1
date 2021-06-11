@@ -28,7 +28,7 @@
 
 		<table class="table table-hover  table-condensed ">
 			<tr>
-				<th>Nom Document</th>
+				<th>Nom</th>
 				<th>Type</th>
 				<th>Description</th>
 

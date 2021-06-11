@@ -158,9 +158,9 @@ refresh = function() {
 				"<th>Produit</th>"+
 				"<th>Fournisseur</th>"+
 				"<th>Date Achat </th>"+
-				"<th>Affectation</th>"+
+				"<th>Salle</th>"+
 				"<th>Total</th>"+
-				"<th>Fct</th>"+
+				"<th>Outils</th>"+
 			"</tr></thead><tbody>"
 	);
 	var note = "";
@@ -249,14 +249,10 @@ $("#cat_id").click(function(){
 			   }
 		});
 		var i = 0;
-		let count = 0;
-			for(let key in listProd) {
-   				count ++;
-				}
 		$.each(listProd, function(key, row) {	
             var opt = document.createElement('option');
             opt.value = key;
-			opt.id = "prd_id-";
+			opt.id = "prd_id-"+i;
             opt.text = row;
             sel.appendChild(opt);	
 			i++;
@@ -293,22 +289,52 @@ $("#sto_cat_id2").click(function(){
 			   }
 		});
 		var i = 0;
-		let count = 0;
-			for(let key in listProd) {
-   				count ++;
-				}
 		$.each(listProd, function(key, row) {	
             var opt = document.createElement('option');
             opt.value = key;
-			opt.id = "prd_id-";
+			opt.id = "sto_prd_id2-"+i;
             opt.text = row;
             sel.appendChild(opt);	
 			i++;
 		});
+});
 
-
-
-
+$("#sto_cat_id").click(function(){
+	var cat_id = $("#sto_cat_id").val();
+	var listProd;
+	//suppr la liste des produits actuelle 
+	var sel = document.getElementById("sto_prd_id");
+	for (i = sel.length - 1; i >= 0; i--) {
+	sel.remove(i);
+}
+	
+	var ajax_data = new FormData();                   
+		ajax_data.append("cat_id",				cat_id);
+		$.ajax({
+			   type: "POST", 
+			   url: "!stoStock!ProdWCat",
+				contentType : false,
+				processData : false,
+				async: false,
+				dataType: 'JSON',   
+			   data: ajax_data,
+			   success: function(data){
+				   listProd=data;
+			   },
+		  	   error:function(xhr, ajaxOptions, thrownError){
+					alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);
+			    	return;
+			   }
+		});
+		var i = 0;
+		$.each(listProd, function(key, row) {	
+            var opt = document.createElement('option');
+            opt.value = key;
+			opt.id = "sto_prd_id-"+i;
+            opt.text = row;
+            sel.appendChild(opt);	
+			i++;
+		});
 });
 
 del=function(pid,sto_total){
@@ -399,9 +425,9 @@ edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',st
 			"Enregistrer": function(){ 
 				
 				
-				if($("#sto_prd_id").val().length < 1)	{ alert ("Nom produit obligatoire !");		return (0); }
-				if($("#sto_cat_id").val().length < 1)	{ alert ("Nom catégorie obligatoire !");	return (0); }
-				if($("#sto_srv_id").val() == '')		{ alert ("Vérifier Affectation ") ; 		return (0); }
+				if($("#sto_prd_id").val()==0)	{ alert ("Produit obligatoire !");		return (0); }
+				if($("#sto_cat_id").val().length < 1)	{ alert ("Catégorie obligatoire !");	return (0); }
+				if($("#sto_srv_id").val() == '')		{ alert ("Vérifiez la salle ") ; 		return (0); }
 				
 				
 			    var form_data = new FormData();                   
@@ -482,9 +508,9 @@ addMultiples = function() {
 		buttons: {
 			"Enregistrer": function(){ 
 				
-				if($("#sto_prd_id2").val().length < 1)	{ alert ("Nom produit obligatoire !");		return (0); }
-				if($("#sto_cat_id2").val().length < 1)	{ alert ("Nom catégorie obligatoire !");	return (0); }
-				if($("#sto_srv_id2").val() == '')		{ alert ("Vérifier Affectation ") ; 		return (0); }
+				if($("#sto_prd_id2").val()==0)	{ alert ("Produit obligatoire !");		return (0); }
+				if($("#sto_cat_id2").val().length < 1)	{ alert ("Catégorie obligatoire !");	return (0); }
+				if($("#sto_srv_id2").val() == '')		{ alert ("Vérifiez la salle ") ; 		return (0); }
 				
 			    var form_data = new FormData();                   
 			    form_data.append("nbr_prd",				$("#nbr_prd").val());

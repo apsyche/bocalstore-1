@@ -258,6 +258,7 @@ $(function() {
 					"<th>Nom</th>"+
 					"<th>Description</th>"+
 					"<th>Prix</th>"+
+					"<th>Outils</th>"+
 				"</tr></thead><tbody>"
 		);
 		
