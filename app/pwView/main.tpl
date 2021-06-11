@@ -72,7 +72,7 @@ body {
 							<br>
 							<br> <label for="inputEmail" class="sr-only">Email
 								address</label> <input type="text" id="login" class="form-control"
-								placeholder="Nom d'utilisteur" required autofocus style="width: 60%">
+								placeholder="Nom d'utilisateur" required autofocus style="width: 60%">
 							<label for="inputPassword" class="sr-only">Password</label> <input
 								type="password" id="pass" class="form-control"
 								placeholder="Mot de passe" required style="width: 60%">
