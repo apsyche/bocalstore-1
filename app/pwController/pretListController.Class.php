@@ -38,7 +38,7 @@ class pretListController extends PwController {
 		$affectList= PwList::getInstance()->getList ( "affectList" );
 		$smarty->assign ( 'affectList', $affectList);
 		
-		$diplome = array( "0" => "L1",  "2" => "L2",  "4" => "L3",  "5" => "M1",  "6" => "M2", );
+		$diplome = array( "0" => "L1",  "2" => "L2",  "4" => "L3",  "5" => "M1",  "6" => "M2", "7"=>"Dcotorant", "8"=>"Enseignant", "9"=>"Technicien", "10"=>"BIATSS", "11"=>"Autre" );
 		$smarty->assign ( 'diplome', $diplome);
 		
 	}
@@ -113,8 +113,7 @@ class pretListController extends PwController {
 	}
 	
 	public function actionRendu() {
-	    $prt_id 	= (isset ($_POST['prt_id']))? $_POST['prt_id']:""; 
-	    $retour = PwPret::setEtat($_POST['prt_id']);
+	    $retour = PwPret::setEtat($_POST['prt_id'],$_POST['pret_date_rendu'],$_POST['commentaire']);
 	    echo $retour;
 
 

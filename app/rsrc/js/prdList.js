@@ -216,6 +216,10 @@ $(function() {
 		});
 		
 		var tab = $("#tableCat");
+		var mode = "";
+		if (usr_right_lecture == 1){
+		  mode = "disabled=\"disabled\" ";
+		}
 		tab.empty();
 		$("#tableCat").append(
 				"<thead><tr>" +
@@ -235,9 +239,9 @@ $(function() {
 						"<td>"+row['cat_nom'].replace(/\\/g, '') +"</td>"+
 						"<td>"+row['cat_description'].replace(/\\/g, '') +"</td>"+
 						"<td style=\"width: 70px\">"+
-						 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"saveCat('"+row['cat_id']+"','"+row['cat_nom']+"','"+row['cat_description']+"')\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span> </button>" +
+						 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" " +mode + " onclick=\"saveCat('"+row['cat_id']+"','"+row['cat_nom']+"','"+row['cat_description']+"')\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span> </button>" +
 						 	"&nbsp;"+
-						 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"delCat('"+row['cat_id']+"')\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span> </button>" +
+						 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" "+ mode +" onclick=\"delCat('"+row['cat_id']+"')\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span> </button>" +
 						"</td>"+
 					"</tr>"
 			);
@@ -287,6 +291,10 @@ $(function() {
 		});
 
 		var note = "";
+		var mode = "";
+		if (usr_right_lecture == 1){
+		  mode = "disabled=\"disabled\" ";
+		}
 		var nbr = 0;
 		$.each(list, function(key, row) {
 			nbr++;
@@ -298,9 +306,9 @@ $(function() {
 						"<td>"+row['prd_prix_ht'] +"</td>"+
 		
 						"<td style=\"width: 70px\">"+
-					 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"saveProd('"+row['prd_id']+"','"+row['prd_nom']+"','"+row['prd_description']+"','"+row['prd_prix_ht']+"','"+row['prd_tva']+"','"+row['prd_ref']+"')\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span> </button>" +
+					 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" " +mode + " onclick=\"saveProd('"+row['prd_id']+"','"+row['prd_nom']+"','"+row['prd_description']+"','"+row['prd_prix_ht']+"','"+row['prd_tva']+"','"+row['prd_ref']+"')\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span> </button>" +
 					 	"&nbsp;"+
-					 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"delProd('"+row['prd_id']+"','"+row['prd_cat_id']+"')\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span> </button>" +
+					 	"<button type=\"button\" class=\"btn btn-danger btn-xs\" " +mode + " onclick=\"delProd('"+row['prd_id']+"','"+row['prd_cat_id']+"')\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span> </button>" +
 					"</td>"+
 					"</tr>"
 			);

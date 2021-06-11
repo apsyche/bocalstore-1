@@ -215,6 +215,11 @@ $("#cat_id").click(function(){
 				"</tr></thead><tbody>"
 		);
 		var note = "";
+		var mode = "";
+		if (usr_right_lecture == 1){
+		  mode = "disabled=\"disabled\" ";
+		}
+
 		var nbr = 0;
 		$.each(list, function(key, row) {
 			//if(row['prt_date_retour']!='0000-00-00'){
@@ -230,7 +235,7 @@ $("#cat_id").click(function(){
 						"<td>"+row['fur_raison_social'] +"</td>"+
 						"<td>"+row['srv_nom'] +"</td>"+
 						"<td>  " + 
-							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" 					{if $smarty.session.usr_right_lecture eq '1'}disabled=\"disabled\"{/if}; onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
+							"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" " +mode + " onclick=\"pretAdd('"+row['prd_id']+"','"+row['sto_id']+"');\"> <span class=\"glyphicon glyphicon-retweet \"></span></button>" +
 						" </td>"+
 					"</tr>"
 			); 																					   
@@ -267,6 +272,8 @@ $("#cat_id").click(function(){
 					if($("#prt_nom").val().length < 1)		{ alert ("Nom obligatoire!");		return (0); }
 					if($("#prt_prenom").val().length < 1)	{ alert ("Prénom obligatoire !");	return (0); }
 					if($("#prt_email").val().length < 1)	{ alert (" Email obligatoire") ; 	return (0); }
+					if(!$("#prt_date_pret").val())	{ alert ("Date obligatoire.");		return (0); }
+					if(!$("#prt_date_retour_prevu").val())	{ alert ("Date obligatoire.");		return (0); }
 					if(isEmail($("#prt_email").val())==false){
           				alert("Mail non valide.");
           				return (0);

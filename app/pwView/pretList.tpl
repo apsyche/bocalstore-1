@@ -99,7 +99,7 @@
 				<td><input class="form-control" type="text" id="prt_num_tel" name="prt_num_tel" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Niveau d'étude&nbsp;&nbsp;&nbsp;	</td>
+				<td align="right" style="width: 40%">Status de la personne&nbsp;&nbsp;&nbsp;	</td>
 				<td>{html_options class="form-control" id='prt_diplome' name='prt_diplome' options=$diplome}</td>
 			</tr>
 			<tr>
