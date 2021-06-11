@@ -7,7 +7,7 @@
 			<port>3306</port>
 			<dataBase>bocalstore_bd</dataBase>
 			<user>root</user>
-			<password>root</password>
+			<password>mysqlpass</password>
 		</db0>
 		<db1>
 			<dsn></dsn>

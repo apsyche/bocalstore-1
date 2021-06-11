@@ -1,3 +1,4 @@
+
 <h4>
 	<span class="glyphicon glyphicon-arrow-right"></span> Inventaire
 </h4>
