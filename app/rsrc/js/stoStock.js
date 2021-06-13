@@ -544,7 +544,63 @@ addMultiples = function() {
 					data : form_data,
 					success: function(data){
 					 if(data.length >0){
-						 alert(data);
+						 //alert(data);
+						 
+						 var nb = form_data.get("nbr_prd");
+						 $("#addInformation").dialog({
+						 	modal : true,
+						 	width: 700,
+						 	buttons: {
+						 		"Enregistrer": function(){
+						 			var i = 0;
+						 			var form_data = new FormData();
+						 			for(i; i<nb; i++){
+						 				form_data.append("sto_num_inventaire",$("#sto_num_inventaire_"+i+"").val());
+						 				form_data.append("sto_serie",$("#sto_serie_"+i+"").val());
+					 				}
+							 		form_data.append("nbr", nb);
+							 			
+							 			$.ajax({
+							 				url: "!stoStock!AddInformationComplementaire",
+            				 				type: "POST",
+            				 				cache : false,
+            				 				contentType : false,
+            				 				processData : false,
+            				 				data : form_data,
+            				 				success: function(data){
+            				 					if(data.length >0){
+            				 						alert(data);
+        				 						}
+        				 						refresh();
+            				 				},
+            				 					error:function(xhr, ajaxOptions, thrownError){
+            				 					alert("edit infPlanche error."+"\nstatusText: "+xhr.statusText+"\nthrownError: "+thrownError);
+            				 					},
+							 			});
+							 			$(this).dialog('close');							 			
+						 			},
+						 			"Annuler": function(){
+						 				$(this).dialog('close');
+						 			}
+						 	},
+						 });
+						 var tab = [];
+						 var i = 0;
+						 var nb = form_data.get("nbr_prd");
+						 var head = "<form action='POST' action='#' enctype='multipart/form-data'>"+
+						 	"<table style='width: 95%'>"+
+						 		"<tr><td style='display: none'><input type='text' id='nbr' name='nbr'></td></tr>";
+				 		for(i=0; i<nb; i++){
+						 	var html = "<tr><td>Code barre "+i+"</td>"+
+						 				"<td><input type='text' id='sto_num_inventaire_"+i+"'></td>"+
+						 				"<td>Numero de serie "+i+"</td>"+
+						 				"<td><input type='text' id='sto_serie_"+i+"'></td>"+
+						 				"</tr>";
+						 	tab[i] = html;
+						 }
+						 var pied = "</table></form>";
+						 $("#addInformation").html(head+tab+pied);
+						 $("#addInformation").dialog('open');
 					 }
 					   	refresh();
 					 },

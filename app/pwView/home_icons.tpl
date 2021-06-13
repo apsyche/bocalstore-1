@@ -15,7 +15,7 @@
 					src="rsrc/icons/png_icons/128/contact-table-icon393.png"
 					{if $smarty.session.usr_right_four eq '0'}class="grayscale"
 					{/if};
-					style="width: 80px; height: 75px;"> <b>Fourniseurs</b>
+					style="width: 80px; height: 75px;"> <b>Fournisseurs</b>
 				</td>
 			</tr>
 

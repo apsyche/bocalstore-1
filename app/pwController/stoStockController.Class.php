@@ -178,6 +178,20 @@ class stoStockController extends PwController {
 		
 	}
 	
+	public function actionAddInformationComplementaire(){
+	    $nb = $_POST['nbr'];
+	    $list = PwStock::getAddProduit($nb);
+	    
+	    foreach ($list as $row){
+	        $obj = new PwStock($row['sto_id']);
+	        $obj->sto_num_inventaire=$_POST['sto_num_inventaire'];
+	        $obj->sto_serie=$_POST['sto_serie'];
+	        $obj->save();
+	    }
+	    
+	    echo "Enregistrement termine";
+	}
+	
 	
 	public function actionDelete() {
 		$sto_id= $_POST['sto_id'];

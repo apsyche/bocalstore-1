@@ -8,21 +8,22 @@
 
 [typeDocGed]
 0 = ""; 
-1 = "PV Mise en service";
+1 = "PV Mise en service/sortie";
 2 = "Facture";
 3 = "Devis";
-5 = "Bon de commande"
+5 = "Bon de commande/livraison"
 6 = "Compte-rendu"
-8 = "alpha"
-7 = "Autre"
+7 = "Documentation technique"
+8 = "Notice de produit"
+9 = "Autre"
 
 [typeDocFournisseur]
 0 = ""; 
-1 = "PV Mise en service";
+1 = "Plan";
 2 = "Facture";
 3 = "Devis";
 5 = "Bon de commande"
-6 = "Compte-rendu"
+6 = "Bon de livraison"
 7 = "Autre"
 
 

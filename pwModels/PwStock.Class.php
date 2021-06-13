@@ -160,6 +160,15 @@ class PwStock extends PwModel {
 	        return $list;
 	        
 	}
+	
+	public static function getAddProduit($nombre){
+	    $cmd = "SELECT * FROM `stock` where sto_del= 0 order by sto_id DESC limit $nombre";
+	    $prep = PwPDO::getInstance ( PwPDO::DB_0 )->prepare ( $cmd );
+	    $prep->execute ();
+	    $list = $prep->fetchAll ( PDO::FETCH_ASSOC );
+	    
+	    return $list;
+	}
 
  	
  	
