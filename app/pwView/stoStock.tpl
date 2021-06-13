@@ -268,6 +268,7 @@
 	</form>
 </div>	
 
-
+<div title="Ajout Code Barre et Numero de Serie" id="addInformation">
+</div>
 
 		
