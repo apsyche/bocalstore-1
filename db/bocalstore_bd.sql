@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 11 juin 2021 à 19:05
--- Version du serveur :  10.3.27-MariaDB-0+deb10u1
--- Version de PHP : 7.3.27-1~deb10u1
+-- Hôte : 127.0.0.1
+-- Généré le :  Dim 13 juin 2021 à 12:36
+-- Version du serveur :  10.1.31-MariaDB
+-- Version de PHP :  7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `bocalstore_bd`
+-- Base de données :  `bocalstore_bd`
 --
 
 -- --------------------------------------------------------
@@ -27,13 +28,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `categorie`
 --
 
-DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE `categorie` (
   `cat_id` int(11) NOT NULL,
   `cat_fur_id` int(11) NOT NULL,
   `cat_nom` varchar(255) NOT NULL,
   `cat_description` varchar(1000) NOT NULL,
-  `cat_del` int(11) NOT NULL DEFAULT 0
+  `cat_del` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -69,7 +69,6 @@ INSERT INTO `categorie` (`cat_id`, `cat_fur_id`, `cat_nom`, `cat_description`, `
 -- Structure de la table `fournisseur`
 --
 
-DROP TABLE IF EXISTS `fournisseur`;
 CREATE TABLE `fournisseur` (
   `fur_id` int(11) NOT NULL,
   `fur_raison_social` varchar(255) NOT NULL,
@@ -90,7 +89,7 @@ CREATE TABLE `fournisseur` (
   `fur_date_create` datetime NOT NULL,
   `fur_usr_mod` int(11) NOT NULL,
   `fur_date_mod` datetime NOT NULL,
-  `fur_del` int(11) NOT NULL DEFAULT 0
+  `fur_del` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -134,7 +133,6 @@ INSERT INTO `fournisseur` (`fur_id`, `fur_raison_social`, `fur_adresse`, `fur_vi
 -- Structure de la table `fournisseur_doc`
 --
 
-DROP TABLE IF EXISTS `fournisseur_doc`;
 CREATE TABLE `fournisseur_doc` (
   `fdoc_id` int(11) NOT NULL,
   `fdoc_fur_id` int(11) NOT NULL,
@@ -161,7 +159,6 @@ INSERT INTO `fournisseur_doc` (`fdoc_id`, `fdoc_fur_id`, `fdoc_type`, `fdoc_nom`
 -- Structure de la table `ged_doc`
 --
 
-DROP TABLE IF EXISTS `ged_doc`;
 CREATE TABLE `ged_doc` (
   `gedd_id` int(11) NOT NULL,
   `gedd_type` int(11) NOT NULL,
@@ -187,7 +184,6 @@ INSERT INTO `ged_doc` (`gedd_id`, `gedd_type`, `gedd_nom`, `gedd_description`, `
 -- Structure de la table `information`
 --
 
-DROP TABLE IF EXISTS `information`;
 CREATE TABLE `information` (
   `inf_id` int(11) NOT NULL,
   `inf_nom_apc` varchar(255) NOT NULL,
@@ -215,7 +211,6 @@ INSERT INTO `information` (`inf_id`, `inf_nom_apc`, `inf_adresse`, `inf_cp`, `in
 -- Structure de la table `pret`
 --
 
-DROP TABLE IF EXISTS `pret`;
 CREATE TABLE `pret` (
   `prt_id` int(11) NOT NULL,
   `prt_user_id` int(11) NOT NULL,
@@ -239,7 +234,6 @@ CREATE TABLE `pret` (
 -- Structure de la table `pret_histo`
 --
 
-DROP TABLE IF EXISTS `pret_histo`;
 CREATE TABLE `pret_histo` (
   `prt_id` int(11) NOT NULL,
   `prt_user_id` int(11) NOT NULL,
@@ -263,14 +257,13 @@ CREATE TABLE `pret_histo` (
 -- Structure de la table `produit`
 --
 
-DROP TABLE IF EXISTS `produit`;
 CREATE TABLE `produit` (
   `prd_id` int(11) NOT NULL,
   `prd_cat_id` int(11) NOT NULL,
   `prd_nom` varchar(255) NOT NULL,
   `prd_description` varchar(1000) NOT NULL,
   `prd_prix_ht` decimal(10,2) NOT NULL,
-  `prd_del` int(11) NOT NULL DEFAULT 0
+  `prd_del` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -307,7 +300,6 @@ INSERT INTO `produit` (`prd_id`, `prd_cat_id`, `prd_nom`, `prd_description`, `pr
 -- Structure de la table `service`
 --
 
-DROP TABLE IF EXISTS `service`;
 CREATE TABLE `service` (
   `srv_id` int(11) NOT NULL,
   `srv_nom` varchar(255) NOT NULL,
@@ -339,7 +331,6 @@ INSERT INTO `service` (`srv_id`, `srv_nom`, `srv_description`, `srv_del`) VALUES
 -- Structure de la table `stock`
 --
 
-DROP TABLE IF EXISTS `stock`;
 CREATE TABLE `stock` (
   `sto_id` int(11) NOT NULL,
   `sto_fur_id` int(11) NOT NULL,
@@ -348,75 +339,76 @@ CREATE TABLE `stock` (
   `sto_cat_id` int(11) NOT NULL,
   `sto_libele_cat` varchar(255) NOT NULL,
   `sto_num_inventaire` varchar(255) NOT NULL DEFAULT '0',
+  `sto_num_serie` varchar(255) NOT NULL DEFAULT '0',
   `sto_date_achat` date NOT NULL,
   `sto_prix_achat_ht` int(11) NOT NULL,
-  `sto_annne_amortissement` int(11) NOT NULL DEFAULT 5,
+  `sto_annne_amortissement` int(11) NOT NULL DEFAULT '5',
   `sto_serie` int(11) NOT NULL,
-  `sto_affactation` int(11) NOT NULL DEFAULT 0,
-  `sto_sorti_inventaire` int(11) NOT NULL DEFAULT 0,
+  `sto_affactation` int(11) NOT NULL DEFAULT '0',
+  `sto_sorti_inventaire` int(11) NOT NULL DEFAULT '0',
   `sto_date_sorti_inventaire` date NOT NULL,
   `sto_commentaire` varchar(255) NOT NULL,
-  `sto_qte` int(11) NOT NULL DEFAULT 1,
+  `sto_qte` int(11) NOT NULL DEFAULT '1',
   `sto_srv_id` int(11) NOT NULL,
-  `sto_pret` int(11) NOT NULL DEFAULT 0,
-  `sto_del` int(11) NOT NULL DEFAULT 0
+  `sto_pret` int(11) NOT NULL DEFAULT '0',
+  `sto_del` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `stock`
 --
 
-INSERT INTO `stock` (`sto_id`, `sto_fur_id`, `sto_prd_id`, `sto_libele_prd`, `sto_cat_id`, `sto_libele_cat`, `sto_num_inventaire`, `sto_date_achat`, `sto_prix_achat_ht`, `sto_annne_amortissement`, `sto_serie`, `sto_affactation`, `sto_sorti_inventaire`, `sto_date_sorti_inventaire`, `sto_commentaire`, `sto_qte`, `sto_srv_id`, `sto_pret`, `sto_del`) VALUES
-(248, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(247, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(246, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(245, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(244, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(243, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(242, 3, 37, '37', 32, '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
-(241, 7, 34, '34', 32, '', '', '2021-05-20', 0, 475185, 0, 0, 0, '0000-00-00', '', 1, 11, 1, 0),
-(240, 7, 34, '34', 32, '', '', '2021-05-20', 0, 475185, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
-(239, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(238, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(234, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(237, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(236, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(235, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(233, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(232, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(231, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(230, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(229, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(228, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(227, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(226, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(225, 5, 35, '', 38, '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
-(224, 5, 35, '', 32, '', '', '2021-05-20', 0, 2026, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(223, 5, 35, '', 32, '', '', '2021-05-20', 0, 2026, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(222, 1, 35, '', 31, '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(221, 1, 35, '', 31, '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(220, 1, 35, '', 31, '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(219, 1, 35, '', 31, '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(218, 1, 35, '', 31, '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
-(217, 7, 37, '', 31, '', '', '0000-00-00', 0, 254, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
-(216, 5, 33, '', 38, '', '', '0000-00-00', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
-(215, 7, 37, '', 31, '', '', '0000-00-00', 0, 1516, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
-(214, 5, 37, '', 31, '', '1234', '2021-05-12', 0, 2025, 0, 0, 1, '0000-00-00', '', 1, 3, 0, 0),
-(213, 7, 40, '', 38, '', '', '0000-00-00', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 0, 0, 0),
-(212, 7, 40, '', 38, '', '12580', '2021-05-04', 0, 2050, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
-(211, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(210, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(209, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(208, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(207, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(206, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(205, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(204, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(203, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(202, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(201, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(200, 5, 41, '', 38, '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
-(249, 7, 0, '0', 32, '', '', '2021-06-01', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 2, 0, 1);
+INSERT INTO `stock` (`sto_id`, `sto_fur_id`, `sto_prd_id`, `sto_libele_prd`, `sto_cat_id`, `sto_libele_cat`, `sto_num_inventaire`, `sto_num_serie`, `sto_date_achat`, `sto_prix_achat_ht`, `sto_annne_amortissement`, `sto_serie`, `sto_affactation`, `sto_sorti_inventaire`, `sto_date_sorti_inventaire`, `sto_commentaire`, `sto_qte`, `sto_srv_id`, `sto_pret`, `sto_del`) VALUES
+(248, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(247, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(246, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(245, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(244, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(243, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(242, 3, 37, '37', 32, '', '', '', '2021-05-12', 0, 0, 0, 0, 0, '2021-05-25', '', 1, 8, 0, 0),
+(241, 7, 34, '34', 32, '', '', '', '2021-05-20', 0, 475185, 0, 0, 0, '0000-00-00', '', 1, 11, 1, 0),
+(240, 7, 34, '34', 32, '', '', '', '2021-05-20', 0, 475185, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
+(239, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(238, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(234, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(237, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(236, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(235, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(233, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(232, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(231, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(230, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(229, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(228, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(227, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(226, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(225, 5, 35, '', 38, '', '', '', '2021-05-20', 0, 2051, 0, 0, 0, '2021-05-27', '', 1, 7, 0, 0),
+(224, 5, 35, '', 32, '', '', '', '2021-05-20', 0, 2026, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(223, 5, 35, '', 32, '', '', '', '2021-05-20', 0, 2026, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(222, 1, 35, '', 31, '', '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(221, 1, 35, '', 31, '', '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(220, 1, 35, '', 31, '', '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(219, 1, 35, '', 31, '', '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(218, 1, 35, '', 31, '', '', '', '0000-00-00', 0, 202, 0, 0, 0, '0000-00-00', '', 1, 3, 0, 0),
+(217, 7, 37, '', 31, '', '', '', '0000-00-00', 0, 254, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
+(216, 5, 33, '', 38, '', '', '', '0000-00-00', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
+(215, 7, 37, '', 31, '', '', '', '0000-00-00', 0, 1516, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
+(214, 5, 37, '', 31, '', '1234', '', '2021-05-12', 0, 2025, 0, 0, 1, '0000-00-00', '', 1, 3, 0, 0),
+(213, 7, 40, '', 38, '', '', '', '0000-00-00', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 0, 0, 0),
+(212, 7, 40, '', 38, '', '12580', '', '2021-05-04', 0, 2050, 0, 0, 0, '0000-00-00', '', 1, 11, 0, 0),
+(211, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(210, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(209, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(208, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(207, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(206, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(205, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(204, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(203, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(202, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(201, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(200, 5, 41, '', 38, '', '', '', '2021-05-04', 0, 2025, 0, 0, 0, '0000-00-00', '', 1, 8, 0, 0),
+(249, 7, 0, '0', 32, '', '', '', '2021-06-01', 0, 0, 0, 0, 0, '0000-00-00', '', 1, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -424,7 +416,6 @@ INSERT INTO `stock` (`sto_id`, `sto_fur_id`, `sto_prd_id`, `sto_libele_prd`, `st
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `usr_id` int(11) NOT NULL,
   `usr_lname` varchar(255) NOT NULL,
@@ -432,19 +423,19 @@ CREATE TABLE `user` (
   `usr_login` varchar(255) NOT NULL,
   `usr_psw` varchar(255) NOT NULL,
   `usr_mail` varchar(255) NOT NULL,
-  `usr_active` tinyint(1) NOT NULL DEFAULT 1,
-  `usr_deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `usr_active` tinyint(1) NOT NULL DEFAULT '1',
+  `usr_deleted` tinyint(1) NOT NULL DEFAULT '0',
   `usr_date_create` datetime NOT NULL,
   `usr_date_modify` datetime NOT NULL,
   `usr_usr_create` int(11) NOT NULL,
   `usr_usr_modify` int(11) NOT NULL,
-  `usr_right_param` int(11) NOT NULL DEFAULT 0,
-  `usr_right_four` int(11) NOT NULL DEFAULT 0,
-  `usr_right_cmd` int(11) NOT NULL DEFAULT 0,
-  `usr_right_inv` int(11) NOT NULL DEFAULT 0,
-  `usr_right_pret` int(11) NOT NULL DEFAULT 0,
-  `usr_right_ged` int(11) NOT NULL DEFAULT 0,
-  `usr_right_lecture` int(11) NOT NULL DEFAULT 0
+  `usr_right_param` int(11) NOT NULL DEFAULT '0',
+  `usr_right_four` int(11) NOT NULL DEFAULT '0',
+  `usr_right_cmd` int(11) NOT NULL DEFAULT '0',
+  `usr_right_inv` int(11) NOT NULL DEFAULT '0',
+  `usr_right_pret` int(11) NOT NULL DEFAULT '0',
+  `usr_right_ged` int(11) NOT NULL DEFAULT '0',
+  `usr_right_lecture` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
