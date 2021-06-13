@@ -556,7 +556,7 @@ addMultiples = function() {
 						 			var form_data = new FormData();
 						 			for(i; i<nb; i++){
 						 				form_data.append("sto_num_inventaire",$("#sto_num_inventaire_"+i+"").val());
-						 				form_data.append("sto_serie",$("#sto_serie_"+i+"").val());
+						 				form_data.append("sto_num_serie",$("#sto_num_serie_"+i+"").val());
 					 				}
 							 		form_data.append("nbr", nb);
 							 			
@@ -594,7 +594,7 @@ addMultiples = function() {
 						 	var html = "<tr><td>Code barre "+i+"</td>"+
 						 				"<td><input type='text' id='sto_num_inventaire_"+i+"'></td>"+
 						 				"<td>Numero de serie "+i+"</td>"+
-						 				"<td><input type='text' id='sto_serie_"+i+"'></td>"+
+						 				"<td><input type='text' id='sto_num_serie_"+i+"'></td>"+
 						 				"</tr>";
 						 	tab[i] = html;
 						 }

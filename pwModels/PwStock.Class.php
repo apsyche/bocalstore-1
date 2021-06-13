@@ -201,6 +201,7 @@ class PwStock extends PwModel {
 	protected  $sto_libele_prd ="";
 	protected  $sto_libele_cat  = "";
 	protected  $sto_num_inventaire = "";
+	protected  $sto_num_serie = "";
 	protected  $sto_date_achat = "";
 	protected  $sto_prix_achat_ht = "";
 	protected  $sto_annne_amortissement = "";

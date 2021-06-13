@@ -185,7 +185,7 @@ class stoStockController extends PwController {
 	    foreach ($list as $row){
 	        $obj = new PwStock($row['sto_id']);
 	        $obj->sto_num_inventaire=$_POST['sto_num_inventaire'];
-	        $obj->sto_serie=$_POST['sto_serie'];
+	        $obj->sto_num_serie=$_POST['sto_num_serie'];
 	        $obj->save();
 	    }
 	    
