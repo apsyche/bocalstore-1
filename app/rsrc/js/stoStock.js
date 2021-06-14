@@ -186,7 +186,7 @@ refresh = function() {
 					"<td>"+row['srv_nom'] +"</td>"+
 					"<td>"+row['sto_total'] +"</td>"+
 					"<td>  " +
-						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" " +mode + " onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
+						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" " +mode + " onclick=\"edit('E','"+row['sto_id']+"','"+row['sto_fur_id']+"','"+row['sto_prd_id']+"','"+row['sto_libele_prd']+"','"+row['sto_cat_id']+"','"+row['sto_libele_cat']+"','"+row['sto_num_inventaire']+"','"+row['sto_num_serie']+"','"+row['sto_date_achat']+"','"+row['sto_prix_achat_ht']+"','"+row['sto_annne_amortissement']+"','"+row['sto_srv_id']+"','"+row['sto_sorti_inventaire']+"','"+row['sto_date_sorti_inventaire']+"','"+row['sto_commentaire']+"','"+row['sto_total']+"','"+row['sto_pret']+"');\"> <span class=\"glyphicon glyphicon-edit \"></span></button> &nbsp;" + 
 						"<button type=\"button\" class=\"btn btn-default btn-xs  btn btn-info\" " +mode + " onclick=\"del('"+row['sto_id']+"','"+row['sto_total']+"');\"> <span class=\"glyphicon glyphicon-trash \"></span></button>" +
 					" </td>"+
 				"</tr>"
@@ -623,41 +623,7 @@ addMultiples = function() {
 	});
 }
 
-$("#sto_date_sorti_inventaire2").datepicker({
-    showButtonPanel: true,
-    beforeShow: function( input ) {
-        setTimeout(function() {
-            var buttonPane = $( input )
-                .datepicker( "widget" )
-                .find( ".ui-datepicker-buttonpane" );
-
-            $( "<button>", {
-                text: "Clear",
-                click: function() {
-                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
-                    $.datepicker._clearDate( input );
-                }
-            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
-        }, 1 );
-    },
-    onChangeMonthYear: function( year, month, instance ) {
-        setTimeout(function() {
-            var buttonPane = $( instance )
-                .datepicker( "widget" )
-                .find( ".ui-datepicker-buttonpane" );
-
-            $( "<button>", {
-                text: "Clear",
-                click: function() {
-                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
-                    $.datepicker._clearDate( instance.input );
-                }
-            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
-        }, 1 );
-    }
-}).trigger('focus');
-
-$("#sto_date_achat2").datepicker({
+$("#sto_date_sorti_inventaire2, #sto_date_achat2, #sto_date_achat_fin, #sto_date_achat_deb, #sto_date_achat, #sto_date_sorti_inventaire").datepicker({
     showButtonPanel: true,
     beforeShow: function( input ) {
         setTimeout(function() {

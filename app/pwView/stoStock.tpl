@@ -158,7 +158,7 @@
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_achat" name="sto_date_achat"  readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>
 			<tr>
-				<td align="right" style="width: 40%">Prix d'achat indcatif &nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Prix d'achat indicatif &nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_prix_achat_ht" name="sto_prix_achat_ht" readonly="readonly"></td>
 			</tr>
 			<tr>
@@ -183,7 +183,7 @@
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Date de sorti de l'inventaire&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Date de sortie de l'inventaire&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_sorti_inventaire" name="sto_date_sorti_inventaire" readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>
 			<tr>
@@ -259,7 +259,7 @@
 			</tr>
 			
 			<tr>
-				<td align="right" style="width: 40%">Date sorti inventaire&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" style="width: 40%">Date sortie inventaire&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_sorti_inventaire2" name="sto_date_sorti_inventaire2" readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>
 			<tr>
