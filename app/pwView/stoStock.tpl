@@ -150,6 +150,10 @@
 				<td><input class="form-control" type="text" id="sto_num_inventaire" name="sto_num_inventaire"></td>
 			</tr>
 			<tr>
+				<td align="right" style="width: 40%">Numero de serie&nbsp;&nbsp;&nbsp;</td>
+				<td><input class="form-control" type="text" id="sto_num_serie" name="sto_num_serie"></td>
+			</tr>
+			<tr>
 				<td align="right" style="width: 40%">Date Achat&nbsp;&nbsp;&nbsp;</td>
 				<td><input class="form-control" type="text" style="width: 40%" id="sto_date_achat" name="sto_date_achat"  readonly="readonly"> <span class="glyphicon glyphicon-calendar"></td>
 			</tr>

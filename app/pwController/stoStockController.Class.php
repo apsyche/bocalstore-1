@@ -115,6 +115,7 @@ class stoStockController extends PwController {
 	    $obj->sto_cat_id=$_POST['sto_cat_id'];
 	    $obj->sto_libele_cat=$_POST['sto_libele_cat'];
 	    $obj->sto_num_inventaire=$_POST['sto_num_inventaire'];
+	    $obj->sto_num_serie=$_POST['sto_num_serie'];
 	    $obj->sto_date_achat=$_POST['sto_date_achat'];
 	    $obj->sto_prix_achat_ht=$_POST['sto_prix_achat_ht'];
 	    $obj->sto_annne_amortissement=$_POST['sto_annne_amortissement'];
@@ -180,14 +181,18 @@ class stoStockController extends PwController {
 	
 	public function actionAddInformationComplementaire(){
 	    $nb = $_POST['nbr'];
-	    $list = PwStock::getAddProduit($nb);
+	    $list = PwStock::getAddProduit();
 	    
-	    foreach ($list as $row){
-	        $obj = new PwStock($row['sto_id']);
-	        $obj->sto_num_inventaire=$_POST['sto_num_inventaire'];
-	        $obj->sto_num_serie=$_POST['sto_num_serie'];
-	        $obj->save();
+	    for($i=0; $i<$nb; $i++){
+	        foreach($list as $row){
+	            $obj = new PwStock($row['sto_id']-$i);
+	            $obj->sto_num_inventaire=$_POST['sto_num_inventaire_'.$i];
+	            $obj->sto_num_serie=$_POST['sto_num_serie_'.$i];
+	            $obj->save();
+	        }
 	    }
+	    
+	    
 	    
 	    echo "Enregistrement termine";
 	}

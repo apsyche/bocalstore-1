@@ -379,7 +379,7 @@ del=function(pid,sto_total){
 /**
  * edit
  */
-edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',sto_cat_id='',sto_libele_cat='',sto_num_inventaire='',sto_date_achat='',sto_prix_achat_ht='',sto_annne_amortissement='',sto_srv_id='',sto_sorti_inventaire='',sto_date_sorti_inventaire='',sto_commentaire='',sto_total='',sto_pret='') {
+edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',sto_cat_id='',sto_libele_cat='',sto_num_inventaire='',sto_num_serie='',sto_date_achat='',sto_prix_achat_ht='',sto_annne_amortissement='',sto_srv_id='',sto_sorti_inventaire='',sto_date_sorti_inventaire='',sto_commentaire='',sto_total='',sto_pret='') {
 	
 	if((sto_total != '1')&&(sto_total != '')){
 		alert ("Mode groupé !");
@@ -394,6 +394,7 @@ edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',st
 		$("#sto_cat_id").val(sto_cat_id);
 		$("#sto_libele_cat").val(sto_libele_cat);
 		$("#sto_num_inventaire").val(sto_num_inventaire);
+		$("#sto_num_serie").val(sto_num_serie);
 		$("#sto_date_achat").val(sto_date_achat);
 		$("#sto_prix_achat_ht").val(sto_prix_achat_ht);
 		$("#sto_annne_amortissement").val(sto_annne_amortissement);
@@ -413,6 +414,7 @@ edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',st
 		$("#sto_cat_id").val('');
 		$("#sto_libele_cat").val('');
 		$("#sto_num_inventaire").val('');
+		$("#sto_num_serie").val('');
 		$("#sto_date_achat").val('');
 		$("#sto_prix_achat_ht").val('');
 		$("#sto_annne_amortissement").val('');
@@ -446,6 +448,7 @@ edit = function(mode, sto_id='',sto_fur_id='',sto_prd_id='',sto_libele_prd='',st
 				form_data.append("sto_cat_id",			$("#sto_cat_id").val());
 				form_data.append("sto_libele_cat",		$("#sto_libele_cat").val());
 				form_data.append("sto_num_inventaire",	$("#sto_num_inventaire").val());
+				form_data.append("sto_num_serie",		$("#sto_num_serie").val());
 				form_data.append("sto_date_achat",		$("#sto_date_achat").val());
 				form_data.append("sto_prix_achat_ht",	$("#sto_prix_achat_ht").val());
 				form_data.append("sto_annne_amortissement",$("#sto_annne_amortissement").val());
@@ -555,8 +558,8 @@ addMultiples = function() {
 						 			var i = 0;
 						 			var form_data = new FormData();
 						 			for(i; i<nb; i++){
-						 				form_data.append("sto_num_inventaire",$("#sto_num_inventaire_"+i+"").val());
-						 				form_data.append("sto_num_serie",$("#sto_num_serie_"+i+"").val());
+						 				form_data.append("sto_num_inventaire_",$("#sto_num_inventaire_"+i+"").val());
+						 				form_data.append("sto_num_serie_",$("#sto_num_serie_"+i+"").val());
 					 				}
 							 		form_data.append("nbr", nb);
 							 			
@@ -620,7 +623,73 @@ addMultiples = function() {
 	});
 }
 
+$("#sto_date_sorti_inventaire2").datepicker({
+    showButtonPanel: true,
+    beforeShow: function( input ) {
+        setTimeout(function() {
+            var buttonPane = $( input )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
 
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    },
+    onChangeMonthYear: function( year, month, instance ) {
+        setTimeout(function() {
+            var buttonPane = $( instance )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( instance.input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    }
+}).trigger('focus');
+
+$("#sto_date_achat2").datepicker({
+    showButtonPanel: true,
+    beforeShow: function( input ) {
+        setTimeout(function() {
+            var buttonPane = $( input )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    },
+    onChangeMonthYear: function( year, month, instance ) {
+        setTimeout(function() {
+            var buttonPane = $( instance )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( instance.input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    }
+}).trigger('focus');
 
 // execut
 	$('body').keypress(function(e){
