@@ -623,7 +623,73 @@ addMultiples = function() {
 	});
 }
 
+$("#sto_date_sorti_inventaire2").datepicker({
+    showButtonPanel: true,
+    beforeShow: function( input ) {
+        setTimeout(function() {
+            var buttonPane = $( input )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
 
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    },
+    onChangeMonthYear: function( year, month, instance ) {
+        setTimeout(function() {
+            var buttonPane = $( instance )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( instance.input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    }
+}).trigger('focus');
+
+$("#sto_date_achat2").datepicker({
+    showButtonPanel: true,
+    beforeShow: function( input ) {
+        setTimeout(function() {
+            var buttonPane = $( input )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    },
+    onChangeMonthYear: function( year, month, instance ) {
+        setTimeout(function() {
+            var buttonPane = $( instance )
+                .datepicker( "widget" )
+                .find( ".ui-datepicker-buttonpane" );
+
+            $( "<button>", {
+                text: "Clear",
+                click: function() {
+                //Code to clear your date field (text box, read only field etc.) I had to remove the line below and add custom code here
+                    $.datepicker._clearDate( instance.input );
+                }
+            }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+        }, 1 );
+    }
+}).trigger('focus');
 
 // execut
 	$('body').keypress(function(e){
